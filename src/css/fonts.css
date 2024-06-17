@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'AbrilFatface-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('AbrilFatface'),
+    url('./fonts/AbrilFatface-Regular.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat'), url('./fonts/Montserrat-Bold.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat'), url('./fonts/Montserrat-Light.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat'), url('./fonts/Montserrat-Medium.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat'), url('./fonts/Montserrat-Regular.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat'), url('./fonts/Montserrat-SemiBold.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Roboto'), url('./fonts/Roboto-Bold.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'OpenSans-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('OpenSans'), url('./fonts/OpenSans-Bold.ttf') format('ttf');
+}
