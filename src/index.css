@@ -4,3 +4,9 @@
 @import url('./css/reset.css');
 @import url('./css/fonts.css');
 @import 'node_modules/modern-normalize/modern-normalize.css';
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}

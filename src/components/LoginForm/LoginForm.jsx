@@ -4,9 +4,9 @@ import { Button } from '../Button/Button';
 export const LoginForm = () => {
   return (
     <Formik>
-      <Form className=" flex flex-col gap-5 bg-i">
+      <Form className=" flex flex-col gap-5">
         <label
-          className="flex flex-col gap-2 text-white"
+          className="flex flex-col gap-2 text-white "
           htmlFor="email"
         >
           Email
@@ -14,7 +14,7 @@ export const LoginForm = () => {
             type="email"
             name="email"
             placeholder="your@email.com"
-            className="py-3 px-2 "
+            className="py-3 px-2 text-placeholder_text bg-google_white"
           />
         </label>
 
@@ -27,7 +27,7 @@ export const LoginForm = () => {
             type="password"
             name="password"
             placeholder="Password"
-            className="py-3 px-2 "
+            className="py-3 px-2 text-placeholder_text bg-google_white"
           />
         </label>
         <Button
