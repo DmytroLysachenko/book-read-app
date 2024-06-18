@@ -1,10 +1,21 @@
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from '../Layout/Layout';
+import { Register } from '../../pages/Register/Register';
 import { Login } from '../../pages/Login/Login';
-import { LoginForm } from '../LoginForm/LoginForm';
 
 export const App = () => {
   return (
-    <>
-      <Login />
-    </>
+    <Layout>
+      <Routes>
+        <Route
+          path="register"
+          element={<Register />}
+        />
+        <Route
+          path="login"
+          element={<Login />}
+        />
+      </Routes>
+    </Layout>
   );
 };

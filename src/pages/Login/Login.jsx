@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { GoogleBtn } from '../../components/GoogleBtn/GoogleBtn';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
+import { Quote } from '../../components/Quote/Quote';
 
 export const Login = () => {
   return (
@@ -16,6 +17,7 @@ export const Login = () => {
           Registration
         </Link>
       </div>
+      <Quote />
     </>
   );
 };
