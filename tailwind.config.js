@@ -2,14 +2,15 @@ import daisyui from 'daisyui';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/**/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       boxShadow: {
         google: '0 2px 2px 0 rgba(9, 30, 63, 0.15)',
       },
       spacing: { '230px': '230px', 25: '100px', 12.5: '50px' },
-
+      fontSize: { '34px': '34px' },
+      lineHeight: { '112%': '112%;', '190%': '190%' },
       fontFamily: {
         Roboto: ['Roboto', 'sans-serif'],
         Montserrat: ['Montserrat', 'sans-serif'],

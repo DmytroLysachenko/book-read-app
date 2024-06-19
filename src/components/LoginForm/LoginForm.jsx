@@ -9,8 +9,9 @@ export const LoginForm = () => {
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
-      onSubmit={({ email, password }) => {
+      onSubmit={({ email, password }, actions) => {
         dispatch(logInThunk({ email, password }));
+        actions.resetForm();
       }}
     >
       <Form className=" flex flex-col gap-5 mt-7">

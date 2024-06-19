@@ -9,8 +9,9 @@ export const RegisterForm = () => {
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '', confirmPassword: '' }}
-      onSubmit={({ name, email, password }) => {
+      onSubmit={({ name, email, password }, actions) => {
         dispatch(registerThunk({ name, email, password }));
+        actions.resetForm();
       }}
     >
       <Form className=" flex flex-col gap-5 mt-7">
@@ -23,7 +24,7 @@ export const RegisterForm = () => {
             type="text"
             name="name"
             placeholder="..."
-            className="py-3 px-2 text-placeholder_text bg-google_white font-normal"
+            className="py-3 px-2 placeholder:text-placeholder_text bg-google_white font-normal text-black"
           />
         </label>
         <label
@@ -35,7 +36,7 @@ export const RegisterForm = () => {
             type="email"
             name="email"
             placeholder="your@email.com"
-            className="py-3 px-2 text-placeholder_text bg-google_white font-normal"
+            className="py-3 px-2 placeholder:text-placeholder_text bg-google_white font-normal text-black"
           />
         </label>
 
@@ -48,7 +49,7 @@ export const RegisterForm = () => {
             type="password"
             name="password"
             placeholder="..."
-            className="py-3 px-2 text-placeholder_text bg-google_white font-normal"
+            className="py-3 px-2 placeholder:text-placeholder_text bg-google_white font-normal text-black"
           />
         </label>
         <label
@@ -60,7 +61,7 @@ export const RegisterForm = () => {
             type="password"
             name="confirmPassword"
             placeholder="..."
-            className="py-3 px-2 text-placeholder_text bg-google_white font-normal"
+            className="py-3 px-2 placeholder:text-placeholder_text bg-google_white font-normal text-black"
           />
         </label>
         <Button

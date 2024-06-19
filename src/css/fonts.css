@@ -1,49 +1,71 @@
 @font-face {
-  font-family: 'AbrilFatface';
+  font-family: 'Abril Fatface';
+  src: url('./fonts/AbrilFatface-Regular.woff2') format('woff2'),
+    url('./fonts/AbrilFatface-Regular.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  src: local('AbrilFatface'),
-    url('./fonts/AbrilFatface-Regular.ttf') format('ttf');
+  font-display: swap;
 }
+
 @font-face {
   font-family: 'Montserrat';
-  font-style: normal;
+  src: url('./fonts/Montserrat-Bold.woff2') format('woff2'),
+    url('./fonts/Montserrat-Bold.woff') format('woff');
   font-weight: bold;
-  src: local('Montserrat'), url('./fonts/Montserrat-Bold.ttf') format('ttf');
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./fonts/OpenSans-Bold.woff2') format('woff2'),
+    url('./fonts/OpenSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Montserrat'), url('./fonts/Montserrat-Light.ttf') format('ttf');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Montserrat'), url('./fonts/Montserrat-Medium.ttf') format('ttf');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat'), url('./fonts/Montserrat-Regular.ttf') format('ttf');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
+  src: url('./fonts/Montserrat-SemiBold.woff2') format('woff2'),
+    url('./fonts/Montserrat-SemiBold.woff') format('woff');
   font-weight: 600;
-  src: local('Montserrat'), url('./fonts/Montserrat-SemiBold.ttf') format('ttf');
+  font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
   font-family: 'Roboto';
-  font-style: normal;
+  src: url('./fonts/Roboto-Bold.woff2') format('woff2'),
+    url('./fonts/Roboto-Bold.woff') format('woff');
   font-weight: bold;
-  src: local('Roboto'), url('./fonts/Roboto-Bold.ttf') format('ttf');
+  font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
-  font-family: 'OpenSans';
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-Medium.woff2') format('woff2'),
+    url('./fonts/Montserrat-Medium.woff') format('woff');
+  font-weight: 500;
   font-style: normal;
-  font-weight: bold;
-  src: local('OpenSans'), url('./fonts/OpenSans-Bold.ttf') format('ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-Light.woff2') format('woff2'),
+    url('./fonts/Montserrat-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-Regular.woff2') format('woff2'),
+    url('./fonts/Montserrat-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }

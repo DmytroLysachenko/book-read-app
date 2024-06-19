@@ -12,15 +12,17 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
+import { booksReducer } from './books/slice';
 
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['refreshToken'],
+  whitelist: ['refreshToken', 'sid', 'name', 'email'],
 };
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    books: booksReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

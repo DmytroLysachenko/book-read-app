@@ -62,13 +62,14 @@ export const refreshUserThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.refreshToken;
+    const sid = state.auth.sid;
     if (!persistedToken) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
 
     try {
       setAuthHeader(persistedToken);
-      const { data } = await bookReadAPI.post('/auth/refresh');
+      const { data } = await bookReadAPI.post('/auth/refresh', { sid });
       setAuthHeader(data.newAccessToken);
       const userData = await bookReadAPI.get('/user/books');
       data.userData = userData.data;

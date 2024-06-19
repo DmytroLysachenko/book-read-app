@@ -7,7 +7,6 @@ import {
   googleLogInThunk,
 } from './operations';
 import { toast } from 'react-toastify';
-import { Navigate } from 'react-router-dom';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -15,9 +14,11 @@ const authSlice = createSlice({
     accessToken: null,
     refreshToken: null,
     sid: null,
-    userData: null,
+    name: null,
+    email: null,
     isLoggedIn: false,
     isRefreshing: false,
+    planning: null,
   },
   extraReducers: (builder) => {
     builder
@@ -28,7 +29,8 @@ const authSlice = createSlice({
         state.accessToken = payload.accessToken;
         state.refreshToken = payload.refreshToken;
         state.sid = payload.sid;
-        state.userData = payload.userData;
+        state.name = payload.userData.name;
+        state.email = payload.userData.email;
         state.isLoggedIn = true;
         toast.success('You are logged in now!');
       })
@@ -40,6 +42,8 @@ const authSlice = createSlice({
         state.userData = null;
         state.accessToken = null;
         state.refreshToken = null;
+        state.name = null;
+        state.email = null;
         state.isLoggedIn = false;
         toast.success('You are logged out now!');
       })
@@ -55,6 +59,12 @@ const authSlice = createSlice({
       })
       .addCase(refreshUserThunk.rejected, (state) => {
         state.isRefreshing = false;
+        state.userData = null;
+        state.accessToken = null;
+        state.refreshToken = null;
+        state.name = null;
+        state.email = null;
+        state.isLoggedIn = false;
       })
       .addMatcher(
         isAnyOf(
@@ -63,7 +73,7 @@ const authSlice = createSlice({
           logOutThunk.rejected
         ),
         (state) => {
-          toast.error('Something went wrong, try again!');
+          toast.error('Something went wrong!');
         }
       );
   },
