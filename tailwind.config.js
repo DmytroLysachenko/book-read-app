@@ -8,8 +8,16 @@ export default {
       boxShadow: {
         google: '0 2px 2px 0 rgba(9, 30, 63, 0.15)',
       },
-      spacing: { '230px': '230px', 25: '100px', 12.5: '50px' },
-      fontSize: { '34px': '34px' },
+      spacing: {
+        '130px': '130px',
+        '230px': '230px',
+        25: '100px',
+        12.5: '50px',
+        '14px': '14px',
+        15: '60px',
+        noHeaderMob: 'calc(100vh - 60px)',
+      },
+      fontSize: { '34px': '34px', '14px': '14px' },
       lineHeight: { '112%': '112%;', '190%': '190%' },
       fontFamily: {
         Roboto: ['Roboto', 'sans-serif'],
