@@ -8,6 +8,7 @@ import { refreshUserThunk } from '../../redux/auth/operations';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MobInfo } from '../MobInfo/MobInfo';
+import { Library } from '../../pages/Library/Library';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,10 @@ export const App = () => {
           <Route
             path="login"
             element={<Login />}
+          />
+          <Route
+            path="library"
+            element={<Library />}
           />
         </Routes>
       </Layout>

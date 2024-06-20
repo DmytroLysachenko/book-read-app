@@ -9,12 +9,15 @@ export default {
         google: '0 2px 2px 0 rgba(9, 30, 63, 0.15)',
       },
       spacing: {
+        '170px': '170px',
         '130px': '130px',
         '230px': '230px',
         25: '100px',
         12.5: '50px',
+        13: '52px',
         '14px': '14px',
         15: '60px',
+        70: '280px',
         noHeaderMob: 'calc(100vh - 60px)',
       },
       fontSize: { '34px': '34px', '14px': '14px' },
@@ -35,10 +38,14 @@ export default {
         placeholder_text: '#A6ABB9',
         gray_text: '#898F9F',
         divider: 'rgba(36, 42, 55, 0.5)',
+        gray_bg: '#F6F7FB',
       },
       backgroundImage: {
         mob_auth:
           'linear-gradient(90deg, rgba(9,30,63,0.8) 0%, rgba(9,30,63,0.8) 100%),url("/bg-mob.jpg")',
+      },
+      boxShadowColor: {
+        input: 'inset 0 1px 2px 0 rgba(29, 29, 27, 0.15)',
       },
     },
   },

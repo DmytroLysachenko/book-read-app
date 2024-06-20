@@ -102,6 +102,13 @@ img {
   height: auto;
 }
 
+input,
+input:active,
+input:focus {
+  border: none;
+  outline: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -118,14 +125,6 @@ table {
   border-spacing: 0;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  color: #434455;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.32px;
-  background-color: #fff;
-}
 blockquote,
 q {
   quotes: none;
@@ -136,4 +135,16 @@ q:before,
 q:after {
   content: '';
   content: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }

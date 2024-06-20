@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowForward } from 'react-icons/io';
 export const MobInfo = () => {
   return (
-    <div className="flex flex-col px-5 pt-8 pb-10 max-w-80 max-h-noHeaderMob overflow-y-scroll ">
+    <div className="flex flex-col px-5 pt-8 pb-10 min-w-80 max-h-noHeaderMob overflow-y-scroll ">
       <h2 className="text-34px leading-112% font-AbrilFatface text-center font-normal">
         Books Reading
       </h2>
