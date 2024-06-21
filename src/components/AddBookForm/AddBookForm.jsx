@@ -1,6 +1,9 @@
 import { Field, Form, Formik } from 'formik';
 import { BsArrowLeft } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
+import { addBookThunk } from '../../redux/books/operations';
 export const AddBookForm = () => {
+  const dispatch = useDispatch();
   return (
     <div className="px-5 py-6">
       <Formik
@@ -11,6 +14,9 @@ export const AddBookForm = () => {
           pagesTotal: '',
         }}
         onSubmit={({ title, author, publicationDate, pagesTotal }, actions) => {
+          dispatch(
+            addBookThunk({ title, author, publicationDate, pagesTotal })
+          );
           actions.resetForm();
         }}
       >

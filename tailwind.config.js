@@ -7,10 +7,13 @@ export default {
     extend: {
       boxShadow: {
         google: '0 2px 2px 0 rgba(9, 30, 63, 0.15)',
+        gray_btn: 'box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25)',
+        book: '0 2px 3px 0 rgba(9, 30, 63, 0.1)',
       },
       spacing: {
         '170px': '170px',
         '130px': '130px',
+        '200px': '200px',
         '230px': '230px',
         25: '100px',
         12.5: '50px',
@@ -21,12 +24,13 @@ export default {
         noHeaderMob: 'calc(100vh - 60px)',
       },
       fontSize: { '34px': '34px', '14px': '14px' },
+      fontWeight: { logo: '900' },
       lineHeight: { '112%': '112%;', '190%': '190%' },
       fontFamily: {
         Roboto: ['Roboto', 'sans-serif'],
         Montserrat: ['Montserrat', 'sans-serif'],
         OpenSans: ['OpenSans', 'sans-serif'],
-        AbrilFatface: ['AbrilFatface', 'sans-serif'],
+        AbrilFatface: ['AbrilFatface'],
       },
       colors: {
         deep_blue: '#242A37',
@@ -39,6 +43,7 @@ export default {
         gray_text: '#898F9F',
         divider: 'rgba(36, 42, 55, 0.5)',
         gray_bg: '#F6F7FB',
+        gray_btn: '#6D7A8D',
       },
       backgroundImage: {
         mob_auth:
