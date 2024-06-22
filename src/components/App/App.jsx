@@ -9,11 +9,13 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MobInfo } from '../MobInfo/MobInfo';
 import { Library } from '../../pages/Library/Library';
+import { getUserDataThunk } from '../../redux/books/operations';
 
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUserThunk());
+    dispatch(getUserDataThunk());
   }, [dispatch]);
   return (
     <>

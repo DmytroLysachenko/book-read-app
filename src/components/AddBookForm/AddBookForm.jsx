@@ -14,8 +14,15 @@ export const AddBookForm = () => {
           pagesTotal: '',
         }}
         onSubmit={({ title, author, publicationDate, pagesTotal }, actions) => {
+          console.log(publicationDate);
+          const publishYear = Number(publicationDate.slice(0, 4));
           dispatch(
-            addBookThunk({ title, author, publicationDate, pagesTotal })
+            addBookThunk({
+              title,
+              author,
+              publishYear,
+              pagesTotal,
+            })
           );
           actions.resetForm();
         }}

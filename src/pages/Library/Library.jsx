@@ -6,6 +6,9 @@ import {
   selectGoingToReadBooks,
 } from '../../redux/books/selectors';
 import { BookList } from '../../components/BooksList/BookList';
+import { AddBookForm } from '../../components/AddBookForm/AddBookForm';
+import { useMemo } from 'react';
+import { getUserDataThunk } from '../../redux/books/operations';
 
 export const Library = () => {
   const dispatch = useDispatch();
@@ -13,6 +16,8 @@ export const Library = () => {
   const currentlyReadingBooks = useSelector(selectCurrentlyReadingBooks);
   const finishedReadingBooks = useSelector(selectFinishedReadingBooks);
 
+  const isEmpty =
+    goingToReadBooks || currentlyReadingBooks || finishedReadingBooks;
   return (
     <div className="bg-gray_bg max-h-noHeaderMob overflow-scroll">
       {finishedReadingBooks && (
@@ -33,6 +38,7 @@ export const Library = () => {
           title={'Going to read'}
         />
       )}
+      {!isEmpty && <AddBookForm />}
     </div>
   );
 };
