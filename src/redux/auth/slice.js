@@ -39,7 +39,6 @@ const authSlice = createSlice({
         toast.success('You are logged in now!');
       })
       .addCase(logOutThunk.fulfilled, (state) => {
-        state.userData = null;
         state.accessToken = null;
         state.refreshToken = null;
         state.name = null;
@@ -59,7 +58,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshUserThunk.rejected, (state) => {
         state.isRefreshing = false;
-        state.userData = null;
+
         state.accessToken = null;
         state.refreshToken = null;
         state.name = null;

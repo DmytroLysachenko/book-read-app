@@ -37,10 +37,16 @@ export const MobInfo = () => {
         </li>
       </ul>
       <div className="mt-15 flex gap-5 mx-auto">
-        <Link className="border border-solid border-deep_blue min-w-130px min-h-10 flex justify-center items-center">
+        <Link
+          to={'/login'}
+          className="border border-solid border-deep_blue min-w-130px min-h-10 flex justify-center items-center"
+        >
           Log in
         </Link>
-        <Link className="bg-orangeBtn text-white font-semibold min-w-130px min-h-10 flex justify-center items-center">
+        <Link
+          to={'/register'}
+          className="bg-orangeBtn text-white font-semibold min-w-130px min-h-10 flex justify-center items-center"
+        >
           Register
         </Link>
       </div>

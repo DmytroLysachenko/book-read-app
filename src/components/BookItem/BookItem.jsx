@@ -1,14 +1,9 @@
 import { PiBookOpenText } from 'react-icons/pi';
 
-export const BookItem = ({
-  title,
-  author,
-  publishYear,
-  pagesTotal,
-  readingNow,
-}) => {
+export const BookItem = ({ book }) => {
+  const { title, author, publishYear, pagesTotal, readingNow } = book;
   return (
-    <div className="bg-white py-5 flex flex-col max-w-70 shadow-book">
+    <li className="bg-white py-5 flex flex-col max-w-70 shadow-book">
       <h4 className="w-200px mx-auto relative text-wrap mb-7 text-xs">
         {readingNow ? (
           <PiBookOpenText
@@ -36,6 +31,6 @@ export const BookItem = ({
           <li>{pagesTotal}22</li>
         </ul>
       </div>
-    </div>
+    </li>
   );
 };
