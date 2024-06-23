@@ -71,8 +71,6 @@ export const refreshUserThunk = createAsyncThunk(
       setAuthHeader(persistedToken);
       const { data } = await bookReadAPI.post('/auth/refresh', { sid });
       setAuthHeader(data.newAccessToken);
-      const userData = await bookReadAPI.get('/user/books');
-      data.userData = userData.data;
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

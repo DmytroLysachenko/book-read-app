@@ -13,9 +13,9 @@ import { toast } from 'react-toastify';
 const booksSlice = createSlice({
   name: 'books',
   initialState: {
-    goingToRead: null,
-    currentlyReading: null,
-    finishedReading: null,
+    goingToRead: [],
+    currentlyReading: [],
+    finishedReading: [],
     planning: null,
     loading: null,
     error: null,
@@ -23,9 +23,9 @@ const booksSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getUserDataThunk.fulfilled, (state, { payload }) => {
-        state.goingToRead = payload.goingToRead;
-        state.currentlyReading = payload.currentlyReading;
-        state.finishedReading = payload.finishedReading;
+        state.goingToRead = payload.goingToRead ?? null;
+        state.currentlyReading = payload.currentlyReading ?? null;
+        state.finishedReading = payload.finishedReading ?? null;
       })
       .addCase(deleteBookThunk.fulfilled, (state, { payload }) => {
         state.goingToRead = state.goingToRead.filter(
@@ -40,6 +40,7 @@ const booksSlice = createSlice({
         toast.success('Book deleted');
       })
       .addCase(addBookThunk.fulfilled, (state, { payload }) => {
+        console.log(payload);
         state.goingToRead = state.goingToRead.push(payload);
         toast.success('Book added!');
       })

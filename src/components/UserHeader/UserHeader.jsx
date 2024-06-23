@@ -9,7 +9,7 @@ export const UserHeader = () => {
   const userName = useSelector(selectUserName);
   const dispatch = useDispatch();
   return (
-    <header className="h-15 px-5 flex items-center justify-between">
+    <header className="h-15 px-5 flex items-center justify-between bg-white shadow-book">
       <Link
         to={'/'}
         className="text-xl font-AbrilFatface font-logo"

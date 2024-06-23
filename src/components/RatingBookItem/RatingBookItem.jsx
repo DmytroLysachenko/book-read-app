@@ -12,7 +12,6 @@ export const RatingBookItem = ({ book }) => {
           color="#A6ABB9"
         />
         {title}
-        Name of the book Lorem ipsum, dolor sit amet consectetur
       </h4>
       <div className="grid grid-cols-2 min-w-200px mx-auto mt-7">
         <ul className="flex flex-col gap-4 text-xs text-gray_text">
@@ -22,9 +21,9 @@ export const RatingBookItem = ({ book }) => {
           <li>Rating:</li>
         </ul>
         <ul className="flex flex-col gap-4 text-xs">
-          <li>{author}22</li>
-          <li>{publishYear}22</li>
-          <li>{pagesTotal}22</li>
+          <li>{author}</li>
+          <li>{publishYear}</li>
+          <li>{pagesTotal}</li>
           <li>
             <div className="rating rating-sm">
               <input

@@ -5,31 +5,31 @@ export const BookList = ({ books, title }) => {
   return (
     <>
       <h3>{title}</h3>
-      <ul>
+      <ul className="flex flex-col">
         {title === 'Going to read'
           ? books.map((book) => {
-              book.readingNow = false;
               return (
                 <BookItem
-                  key={book.id}
+                  key={book._id}
                   book={book}
+                  readingNow={false}
                 />
               );
             })
           : title === 'Reading now'
           ? books.map((book) => {
-              book.readingNow = true;
               return (
                 <BookItem
-                  key={book.id}
+                  key={book._id}
                   book={book}
+                  readingNow={true}
                 />
               );
             })
           : books.map((book) => {
               return (
                 <RatingBookItem
-                  key={book.id}
+                  key={book._id}
                   book={book}
                 />
               );

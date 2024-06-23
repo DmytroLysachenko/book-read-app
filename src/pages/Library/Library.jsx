@@ -7,7 +7,8 @@ import {
 } from '../../redux/books/selectors';
 import { BookList } from '../../components/BooksList/BookList';
 import { AddBookForm } from '../../components/AddBookForm/AddBookForm';
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
+import { EmptyLibraryModal } from '../../components/EmptyLibraryModal/EmptyLibraryModal';
 import { getUserDataThunk } from '../../redux/books/operations';
 
 export const Library = () => {
@@ -15,30 +16,49 @@ export const Library = () => {
   const goingToReadBooks = useSelector(selectGoingToReadBooks);
   const currentlyReadingBooks = useSelector(selectCurrentlyReadingBooks);
   const finishedReadingBooks = useSelector(selectFinishedReadingBooks);
+  const isNotEmpty =
+    goingToReadBooks.length ||
+    currentlyReadingBooks.length ||
+    finishedReadingBooks.length;
 
-  const isEmpty =
-    goingToReadBooks || currentlyReadingBooks || finishedReadingBooks;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    dispatch(getUserDataThunk());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!isNotEmpty) {
+      setIsModalOpen(true);
+    }
+  }, [isNotEmpty]);
+
   return (
-    <div className="bg-gray_bg max-h-noHeaderMob overflow-scroll">
-      {finishedReadingBooks && (
+    <div className="h-noHeaderMob overflow-y-scroll">
+      {isModalOpen && <EmptyLibraryModal closeModal={closeModal} />}
+      {Boolean(finishedReadingBooks.length) && (
         <BookList
           books={finishedReadingBooks}
           title={'Already read'}
         />
       )}
-      {currentlyReadingBooks && (
+      {Boolean(currentlyReadingBooks.length) && (
         <BookList
           books={currentlyReadingBooks}
           title={'Reading now'}
         />
       )}
-      {goingToReadBooks && (
+      {Boolean(goingToReadBooks.length) && (
         <BookList
           books={goingToReadBooks}
           title={'Going to read'}
         />
       )}
-      {!isEmpty && <AddBookForm />}
+      {!isNotEmpty && <AddBookForm />}
     </div>
   );
 };

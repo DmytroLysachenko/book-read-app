@@ -1,7 +1,7 @@
 import { PiBookOpenText } from 'react-icons/pi';
 
-export const BookItem = ({ book }) => {
-  const { title, author, publishYear, pagesTotal, readingNow } = book;
+export const BookItem = ({ book, readingNow }) => {
+  const { title, author, publishYear, pagesTotal } = book;
   return (
     <li className="bg-white py-5 flex flex-col max-w-70 shadow-book">
       <h4 className="w-200px mx-auto relative text-wrap mb-7 text-xs">
@@ -17,7 +17,6 @@ export const BookItem = ({ book }) => {
           />
         )}
         {title}
-        Name of the book Lorem ipsum, dolor sit amet consectetur
       </h4>
       <div className="grid grid-cols-2 min-w-200px mx-auto">
         <ul className="flex flex-col gap-4 text-xs text-gray_text">
@@ -26,9 +25,9 @@ export const BookItem = ({ book }) => {
           <li>Pages:</li>
         </ul>
         <ul className="flex flex-col gap-4 text-xs">
-          <li>{author}22</li>
-          <li>{publishYear}22</li>
-          <li>{pagesTotal}22</li>
+          <li>{author}</li>
+          <li>{publishYear}</li>
+          <li>{pagesTotal}</li>
         </ul>
       </div>
     </li>

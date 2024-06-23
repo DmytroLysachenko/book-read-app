@@ -3,9 +3,9 @@ import { RiFlagLine } from 'react-icons/ri';
 import { PiArrowElbowDownRightThin } from 'react-icons/pi';
 import { Button } from '../Button/Button';
 
-export const EmptyLibraryModal = () => {
+export const EmptyLibraryModal = ({ closeModal }) => {
   return (
-    <>
+    <div className="fixed left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 bg-white shadow-book">
       <ul className="flex flex-col gap-5 px-5 py-11">
         <li className="flex flex-col gap-1">
           <h3 className=" text-lg font-semibold ">Step 1.</h3>
@@ -46,9 +46,10 @@ export const EmptyLibraryModal = () => {
         padding={'11px 52px'}
         type={'button'}
         margin={'40px auto'}
+        onClick={closeModal}
       >
         Ok
       </Button>
-    </>
+    </div>
   );
 };
