@@ -1,11 +1,12 @@
 import { Field, Form, Formik } from 'formik';
-import { BsArrowLeft } from 'react-icons/bs';
+import { FaArrowLeftLong } from 'react-icons/fa6';
 import { useDispatch } from 'react-redux';
 import { addBookThunk } from '../../redux/books/operations';
-export const AddBookForm = () => {
+export const AddBookForm = ({ closeModal }) => {
   const dispatch = useDispatch();
+  const labelClass = 'flex flex-col gap-2 text-gray_text  text-sm ';
   return (
-    <div className="px-5 py-6 ">
+    <div className="py-6 w-full h-full">
       <Formik
         initialValues={{
           title: '',
@@ -27,9 +28,22 @@ export const AddBookForm = () => {
           actions.resetForm();
         }}
       >
-        <Form className=" flex flex-col gap-5 items-center">
+        <Form className=" flex flex-col gap-5 items-center max-w-70 mx-auto">
+          <button
+            type="button"
+            className="self-start"
+            onClick={() => {
+              closeModal();
+            }}
+          >
+            <FaArrowLeftLong
+              color="rgb(255 107 8)"
+              className="w-6 h-6  "
+            />
+          </button>
+
           <label
-            className="flex flex-col gap-2 text-gray_text  text-sm mt-8"
+            className={labelClass + 'mt-8'}
             htmlFor="title"
           >
             Book title
@@ -42,7 +56,7 @@ export const AddBookForm = () => {
           </label>
 
           <label
-            className="flex flex-col gap-2  text-gray_text  text-sm"
+            className={labelClass}
             htmlFor="author"
           >
             Author
@@ -54,7 +68,7 @@ export const AddBookForm = () => {
             />
           </label>
           <label
-            className="flex flex-col gap-2 text-gray_text  text-sm"
+            className={labelClass}
             htmlFor="publicationDate"
           >
             Publication date
@@ -66,7 +80,7 @@ export const AddBookForm = () => {
             />
           </label>
           <label
-            className="flex flex-col gap-2 text-gray_text  text-sm"
+            className={labelClass}
             htmlFor="pagesTotal"
           >
             Amount of pages

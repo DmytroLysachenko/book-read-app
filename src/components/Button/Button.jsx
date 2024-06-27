@@ -1,9 +1,9 @@
-export const Button = ({ type, children, width, padding, margin, onClick }) => {
+export const Button = ({ type, children, padding, onClick, className }) => {
   return (
     <button
-      className="bg-orangeBtn text-white font-semibold block"
+      className={'bg-orangeBtn text-white font-semibold block ' + className}
       type={type}
-      style={{ width, padding, margin }}
+      style={{ padding }}
       onClick={() => {
         onClick;
       }}

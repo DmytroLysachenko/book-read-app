@@ -1,8 +1,11 @@
 import { HiOutlinePlus } from 'react-icons/hi2';
 
-export const AddButton = () => {
+export const AddButton = ({ openModal }) => {
   return (
     <button
+      onClick={() => {
+        openModal();
+      }}
       type="button"
       className="fixed left-1/2 bottom-3 -translate-x-1/2 w-13 h-13 bg-orangeBtn rounded-full flex items-center justify-center"
     >

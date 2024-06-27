@@ -10,6 +10,7 @@ export default {
         gray_btn: 'box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25)',
         book: '0 2px 3px 0 rgba(9, 30, 63, 0.1)',
         input: 'inset 0 1px 2px 0 rgba(29, 29, 27, 0.15)',
+        reviewModal: '10px 10px 20px 0 rgba(9, 30, 63, 0.2)',
       },
       spacing: {
         '170px': '170px',
@@ -25,7 +26,7 @@ export default {
         70: '280px',
         noHeaderMob: 'calc(100vh - 60px)',
       },
-      fontSize: { '34px': '34px', '14px': '14px' },
+      fontSize: { '34px': '34px', '14px': '14px', '19px': '19px' },
       fontWeight: { logo: '900' },
       lineHeight: { '112%': '112%;', '190%': '190%' },
       fontFamily: {
@@ -46,6 +47,8 @@ export default {
         divider: 'rgba(36, 42, 55, 0.5)',
         gray_bg: '#f6f7fb',
         gray_btn: '#6D7A8D',
+        main_bg_theme: 'rgb(233, 235, 240)',
+        backdrop: 'rgba(43, 43, 43, 0.1)',
       },
       backgroundImage: {
         mob_auth:

@@ -66,8 +66,7 @@ export const RegisterForm = () => {
         </label>
         <Button
           type={'submit'}
-          width={'280px'}
-          padding={'20px 0'}
+          className={'py-5 w-70'}
         >
           Register
         </Button>

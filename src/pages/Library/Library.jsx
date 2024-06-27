@@ -4,61 +4,81 @@ import {
   selectCurrentlyReadingBooks,
   selectFinishedReadingBooks,
   selectGoingToReadBooks,
+  selectIsLoading,
 } from '../../redux/books/selectors';
 import { BookList } from '../../components/BooksList/BookList';
 import { AddBookForm } from '../../components/AddBookForm/AddBookForm';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { EmptyLibraryModal } from '../../components/EmptyLibraryModal/EmptyLibraryModal';
 import { getUserDataThunk } from '../../redux/books/operations';
+import { BookListTitle } from '../../components/BookListTitle/BookListTitle';
+import { AddButton } from '../../components/AddButton/AddButton';
 
 export const Library = () => {
   const dispatch = useDispatch();
   const goingToReadBooks = useSelector(selectGoingToReadBooks);
   const currentlyReadingBooks = useSelector(selectCurrentlyReadingBooks);
   const finishedReadingBooks = useSelector(selectFinishedReadingBooks);
-  const isNotEmpty =
-    goingToReadBooks.length ||
-    currentlyReadingBooks.length ||
-    finishedReadingBooks.length;
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const isLoading = useSelector(selectIsLoading);
+  const [isInitialModalOpen, setIsInitialModalOpen] = useState(false);
+  const books = useMemo(
+    () => [
+      ...goingToReadBooks,
+      ...currentlyReadingBooks,
+      ...finishedReadingBooks,
+    ],
+    [goingToReadBooks, currentlyReadingBooks, finishedReadingBooks]
+  );
+  const [isAddModalOpen, setIsAddModalOpen] = useState(
+    !isLoading && !books.length
+  );
+  console.log(!isLoading && !books.length);
+  const closeInitialModal = () => {
+    setIsInitialModalOpen(false);
+  };
+  const openAddModal = () => {
+    setIsAddModalOpen(true);
+  };
+  const closeAddModal = () => {
+    setIsAddModalOpen(false);
   };
 
-  useEffect(() => {
-    dispatch(getUserDataThunk());
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (!isNotEmpty) {
-      setIsModalOpen(true);
-    }
-  }, [isNotEmpty]);
-
   return (
-    <div className="h-noHeaderMob overflow-y-scroll">
-      {isModalOpen && <EmptyLibraryModal closeModal={closeModal} />}
-      {Boolean(finishedReadingBooks.length) && (
-        <BookList
-          books={finishedReadingBooks}
-          title={'Already read'}
-        />
+    <div className="h-noHeaderMob overflow-y-scroll flex flex-col items-center">
+      {isInitialModalOpen && (
+        <EmptyLibraryModal closeModal={closeInitialModal} />
       )}
-      {Boolean(currentlyReadingBooks.length) && (
-        <BookList
-          books={currentlyReadingBooks}
-          title={'Reading now'}
-        />
+      {Boolean(finishedReadingBooks.length) && !isAddModalOpen && (
+        <>
+          <BookListTitle title={'Already read'} />
+          <BookList
+            books={finishedReadingBooks}
+            type={'finishedReading'}
+          />
+        </>
       )}
-      {Boolean(goingToReadBooks.length) && (
-        <BookList
-          books={goingToReadBooks}
-          title={'Going to read'}
-        />
+      {Boolean(currentlyReadingBooks.length) && !isAddModalOpen && (
+        <>
+          <BookListTitle title={'Reading now'} />
+          <BookList
+            books={currentlyReadingBooks}
+            type={'currentlyReading'}
+          />
+        </>
       )}
-      {!isNotEmpty && <AddBookForm />}
+      {Boolean(goingToReadBooks.length) && !isAddModalOpen && (
+        <>
+          <BookListTitle title={'Going to read'} />
+          <BookList
+            books={goingToReadBooks}
+            type={'goingToRead'}
+          />
+        </>
+      )}
+      {isAddModalOpen && <AddBookForm closeModal={closeAddModal} />}
+      {Boolean(books.length) && !isAddModalOpen && (
+        <AddButton openModal={openAddModal} />
+      )}
     </div>
   );
 };

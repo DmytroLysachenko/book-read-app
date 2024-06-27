@@ -45,7 +45,7 @@ export const EmptyLibraryModal = ({ closeModal }) => {
       <Button
         padding={'11px 52px'}
         type={'button'}
-        margin={'40px auto'}
+        className={'mx-auto my-10'}
         onClick={closeModal}
       >
         Ok

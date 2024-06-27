@@ -3,8 +3,8 @@ import { PiBookOpenText } from 'react-icons/pi';
 export const BookItem = ({ book, readingNow }) => {
   const { title, author, publishYear, pagesTotal } = book;
   return (
-    <li className="bg-white py-5 flex flex-col max-w-70 shadow-book">
-      <h4 className="w-200px mx-auto relative text-wrap mb-7 text-xs">
+    <li className="bg-white py-5 flex flex-col max-w-70 shadow-book px-14">
+      <h4 className="w-200px mx-auto relative text-wrap mb-3 text-xs">
         {readingNow ? (
           <PiBookOpenText
             className=" absolute -left-8 top-1/2 -translate-y-1/2 w-6 h-6"

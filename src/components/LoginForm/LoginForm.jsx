@@ -40,13 +40,7 @@ export const LoginForm = () => {
             className="py-3 px-2 text-placeholder_text bg-google_white font-normal"
           />
         </label>
-        <Button
-          type={'submit'}
-          width={'280px'}
-          padding={'20px 0'}
-        >
-          Login
-        </Button>
+        <Button type={'submit'}>Login</Button>
       </Form>
     </Formik>
   );

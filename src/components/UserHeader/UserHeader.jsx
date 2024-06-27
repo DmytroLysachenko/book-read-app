@@ -8,6 +8,10 @@ import { logOutThunk } from '../../redux/auth/operations';
 export const UserHeader = () => {
   const userName = useSelector(selectUserName);
   const dispatch = useDispatch();
+  const linkClass =
+    'bg-google_white p-2 flex items-center justify-center rounded-full w-8 h-8 overflow-hidden';
+  const activeLinkClass =
+    'bg-transparent p-2 flex items-center justify-center rounded-full w-8 h-8 overflow-hidden';
   return (
     <header className="h-15 px-5 flex items-center justify-between bg-white shadow-book">
       <Link
@@ -19,7 +23,9 @@ export const UserHeader = () => {
       <div className="flex">
         <nav className="flex gap-3">
           <NavLink
-            className="bg-google_white p-2 flex items-center justify-center rounded-full w-8 h-8 overflow-hidden"
+            className={({ isActive }) =>
+              isActive ? activeLinkClass : linkClass
+            }
             to={'/library'}
           >
             <PiBookOpenText
@@ -28,7 +34,9 @@ export const UserHeader = () => {
             />
           </NavLink>
           <NavLink
-            className="bg-google_white p-2 flex items-center justify-center rounded-full w-8 h-8 overflow-hidden"
+            className={({ isActive }) =>
+              isActive ? activeLinkClass : linkClass
+            }
             to={'/'}
           >
             <PiHouseLineLight
