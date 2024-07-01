@@ -9,11 +9,18 @@ export const UserHeader = () => {
   const userName = useSelector(selectUserName);
   const dispatch = useDispatch();
   const linkClass =
-    'bg-google_white p-2 flex items-center justify-center rounded-full w-8 h-8 overflow-hidden';
+    'bg-gray-200 p-2 flex items-center justify-center rounded-full w-8 h-8 overflow-hidden';
   const activeLinkClass =
     'bg-transparent p-2 flex items-center justify-center rounded-full w-8 h-8 overflow-hidden';
+  const headerAfterClass =
+    " after:content-[''] after:bg-headerShadow after:w-full after:h-1 after:absolute after:-bottom-1 after:left-0 after:z-10";
   return (
-    <header className="h-15 px-5 flex items-center justify-between bg-white shadow-book">
+    <header
+      className={
+        'h-15 px-5 flex items-center justify-between bg-white relative' +
+        headerAfterClass
+      }
+    >
       <Link
         to={'/'}
         className="text-xl font-AbrilFatface font-logo"
@@ -21,7 +28,7 @@ export const UserHeader = () => {
         BR
       </Link>
       <div className="flex">
-        <nav className="flex gap-3">
+        <nav className="flex gap-3 ">
           <NavLink
             className={({ isActive }) =>
               isActive ? activeLinkClass : linkClass
@@ -48,7 +55,7 @@ export const UserHeader = () => {
         <div className="divider divider-horizontal m-0 ml-2 mr-3 w-0 after:w-px  before:w-px "></div>
         <div className="flex gap-3">
           <div className="avatar placeholder">
-            <div className="bg-google_white rounded-full w-8">
+            <div className="bg-gray-200 rounded-full w-8">
               <span className="text-sm font-semibold">
                 {avatarName(userName)}
               </span>

@@ -1,7 +1,7 @@
 import { BookItem } from '../BookItem/BookItem';
 import { RatingBookItem } from '../RatingBookItem/RatingBookItem';
 
-export const BookList = ({ books, type }) => {
+export const BookList = ({ books, type, openReviewModal }) => {
   return (
     <ul className="flex flex-col gap-4">
       {type === 'goingToRead'
@@ -29,6 +29,7 @@ export const BookList = ({ books, type }) => {
               <RatingBookItem
                 key={book._id}
                 book={book}
+                openReviewModal={openReviewModal}
               />
             );
           })}

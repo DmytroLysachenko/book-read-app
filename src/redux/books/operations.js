@@ -40,9 +40,10 @@ export const addReviewThunk = createAsyncThunk(
   async (info, thunkAPI) => {
     try {
       const { data } = await bookReadAPI.patch(
-        `/book/review/${info.id}`,
-        info.review
+        `/book/review/${info._id}`,
+        info.values
       );
+      console.log(data);
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);

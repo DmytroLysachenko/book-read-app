@@ -19,6 +19,15 @@ const booksSlice = createSlice({
     planning: null,
     loading: null,
     error: null,
+    currentlyReviewing: null,
+  },
+  reducers: {
+    addReviewingBook(state, { payload }) {
+      state.currentlyReviewing = payload;
+    },
+    removeReviewingBook(state) {
+      state.currentlyReviewing = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -41,7 +50,7 @@ const booksSlice = createSlice({
       })
       .addCase(addBookThunk.fulfilled, (state, { payload }) => {
         console.log(payload);
-        state.goingToRead = state.goingToRead.push(payload);
+        state.goingToRead.push(payload);
         toast.success('Book added!');
       })
       .addCase(addReviewThunk.fulfilled, (state, { payload }) => {
@@ -110,3 +119,4 @@ const booksSlice = createSlice({
 });
 
 export const booksReducer = booksSlice.reducer;
+export const { addReviewingBook, removeReviewingBook } = booksSlice.actions;

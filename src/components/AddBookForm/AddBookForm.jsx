@@ -26,6 +26,7 @@ export const AddBookForm = ({ closeModal }) => {
             })
           );
           actions.resetForm();
+          closeModal();
         }}
       >
         <Form className=" flex flex-col gap-5 items-center max-w-70 mx-auto">
@@ -92,7 +93,7 @@ export const AddBookForm = ({ closeModal }) => {
             />
           </label>
           <button
-            className="py-3 px-16  border border-solid border-deep_blue min-w-170px mt-10"
+            className="py-3 px-16 border border-solid border-deep_blue min-w-170px mt-10"
             type="submit"
           >
             Add

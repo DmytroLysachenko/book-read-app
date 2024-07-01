@@ -51,6 +51,8 @@ export default {
         backdrop: 'rgba(43, 43, 43, 0.1)',
       },
       backgroundImage: {
+        headerShadow:
+          'linear-gradient(0deg, rgba(89, 131, 252, 0) 0%, rgba(9, 30, 63, 0.15) 100%)',
         mob_auth:
           'linear-gradient(90deg, rgba(9,30,63,0.8) 0%, rgba(9,30,63,0.8) 100%),url("/bg-mob.jpg")',
       },

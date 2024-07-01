@@ -14,7 +14,7 @@ import { getUserDataThunk } from '../../redux/books/operations';
 import { BookListTitle } from '../../components/BookListTitle/BookListTitle';
 import { AddButton } from '../../components/AddButton/AddButton';
 
-export const Library = () => {
+export const Library = ({ openReviewModal }) => {
   const dispatch = useDispatch();
   const goingToReadBooks = useSelector(selectGoingToReadBooks);
   const currentlyReadingBooks = useSelector(selectCurrentlyReadingBooks);
@@ -44,7 +44,7 @@ export const Library = () => {
   };
 
   return (
-    <div className="h-noHeaderMob overflow-y-scroll flex flex-col items-center">
+    <div className="h-noHeaderMob overflow-y-auto flex flex-col items-center pb-20 relative z-0">
       {isInitialModalOpen && (
         <EmptyLibraryModal closeModal={closeInitialModal} />
       )}
@@ -54,6 +54,7 @@ export const Library = () => {
           <BookList
             books={finishedReadingBooks}
             type={'finishedReading'}
+            openReviewModal={openReviewModal}
           />
         </>
       )}

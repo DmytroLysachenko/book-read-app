@@ -6,3 +6,5 @@ export const selectFinishedReadingBooks = (state) =>
 export const selectCurrentPlanning = (state) => state.books.planning;
 export const selectIsLoading = (state) => state.books.loading;
 export const selectIsError = (state) => state.books.error;
+export const selectCurrentlyReviewing = (state) =>
+  state.books.currentlyReviewing;

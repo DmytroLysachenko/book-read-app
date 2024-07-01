@@ -1,18 +1,33 @@
 import { Field, Form, Formik } from 'formik';
 import { StarsInput } from '../StarsInput/StarsInput';
 import { Button } from '../Button/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentlyReviewing } from '../../redux/books/selectors';
+import { addReviewThunk } from '../../redux/books/operations';
 
-export const ReviewModal = () => {
+export const ReviewModal = ({ closeModal }) => {
+  const { rating, feedback, _id } = useSelector(selectCurrentlyReviewing);
+  const dispatch = useDispatch();
   return (
     <>
-      <Formik initialValues={{ rating: 2, review: '' }}>
+      <Formik
+        initialValues={{ 'rating-1': rating, feedback }}
+        onSubmit={(values, actions) => {
+          console.log('values:', values);
+          dispatch(addReviewThunk({ values, _id }));
+          closeModal();
+        }}
+      >
         {({ values }) => (
           <Form className="p-5 bg-white max-w-70 shadow-reviewModal flex flex-col gap-5">
-            <StarsInput values={values} />
+            <StarsInput
+              _id={_id}
+              values={values}
+            />
             <div className="flex flex-col gap-2">
               <h2>Review</h2>
               <Field
-                name="review"
+                name="feedback"
                 component="textarea"
                 rows="7"
                 className="border border-solid border-black w-60 p-2 resize-none"
@@ -22,6 +37,9 @@ export const ReviewModal = () => {
               <button
                 type="button"
                 className="border border-solid py-3 border-deep_blue w-25 max-h-10 flex items-center justify-center"
+                onClick={() => {
+                  closeModal();
+                }}
               >
                 Back
               </button>{' '}

@@ -40,7 +40,12 @@ export const LoginForm = () => {
             className="py-3 px-2 text-placeholder_text bg-google_white font-normal"
           />
         </label>
-        <Button type={'submit'}>Login</Button>
+        <Button
+          type={'submit'}
+          className={'py-5 w-70'}
+        >
+          Login
+        </Button>
       </Form>
     </Formik>
   );
