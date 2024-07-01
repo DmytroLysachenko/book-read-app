@@ -6,16 +6,17 @@ export const StarsInput = ({ _id, values }) => {
     <>
       <h2 id="rating-title">Choose rating of the book</h2>
       <div
-        className="rating"
         role="group"
         aria-labelledby="rating-title"
+        className="flex"
       >
         {options.map((rating) =>
-          rating <= values['rating-1'] ? (
+          rating <= values.rating ? (
             <StarRadio
               rating={rating}
               key={rating + _id}
-              checked={true}
+              dark={true}
+              checked={rating === values.rating}
             />
           ) : (
             <StarRadio

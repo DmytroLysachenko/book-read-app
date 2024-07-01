@@ -11,7 +11,7 @@ export const ReviewModal = ({ closeModal }) => {
   return (
     <>
       <Formik
-        initialValues={{ 'rating-1': rating, feedback }}
+        initialValues={{ rating, feedback }}
         onSubmit={(values, actions) => {
           console.log('values:', values);
           dispatch(addReviewThunk({ values, _id }));
