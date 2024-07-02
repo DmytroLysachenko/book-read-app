@@ -4,16 +4,15 @@ import { selectUserName } from '../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { avatarName } from '../../helpers/avatarName';
 import { logOutThunk } from '../../redux/auth/operations';
+import {
+  activeLinkClass,
+  headerAfterClass,
+  linkClass,
+} from '../../css/classes';
 
 export const UserHeader = () => {
   const userName = useSelector(selectUserName);
   const dispatch = useDispatch();
-  const linkClass =
-    'bg-gray-200 p-2 flex items-center justify-center rounded-full w-8 h-8 overflow-hidden';
-  const activeLinkClass =
-    'bg-transparent p-2 flex items-center justify-center rounded-full w-8 h-8 overflow-hidden';
-  const headerAfterClass =
-    " after:content-[''] after:bg-headerShadow after:w-full after:h-1 after:absolute after:-bottom-1 after:left-0 after:z-10";
   return (
     <header
       className={

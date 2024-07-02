@@ -13,6 +13,7 @@ import { EmptyLibraryModal } from '../../components/EmptyLibraryModal/EmptyLibra
 import { getUserDataThunk } from '../../redux/books/operations';
 import { BookListTitle } from '../../components/BookListTitle/BookListTitle';
 import { AddButton } from '../../components/AddButton/AddButton';
+import { Link } from 'react-router-dom';
 
 export const Library = ({ openReviewModal }) => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ export const Library = ({ openReviewModal }) => {
   };
 
   return (
-    <div className="h-noHeaderMob overflow-y-auto flex flex-col items-center pb-20 relative z-0">
+    <div className="h-noHeaderMob overflow-auto flex flex-col items-center pb-20 relative z-0">
       {isInitialModalOpen && (
         <EmptyLibraryModal closeModal={closeInitialModal} />
       )}
@@ -74,6 +75,16 @@ export const Library = ({ openReviewModal }) => {
             books={goingToReadBooks}
             type={'goingToRead'}
           />
+        </>
+      )}
+      {!currentlyReadingBooks.length && !isAddModalOpen && (
+        <>
+          <Link
+            to="/"
+            className="bg-orangeBtn text-white font-semibold min-w-170px min-h-10 flex justify-center items-center mt-7"
+          >
+            My training
+          </Link>
         </>
       )}
       {isAddModalOpen && <AddBookForm closeModal={closeAddModal} />}

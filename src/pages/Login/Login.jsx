@@ -6,8 +6,8 @@ import { Quote } from '../../components/Quote/Quote';
 
 export const Login = () => {
   return (
-    <>
-      <div className="flex flex-col justify-center items-center bg-mob_auth bg-bgOverlay bg-no-repeat bg-cover bg-center px-5 py-8">
+    <div className="h-noHeaderMob overflow-y-auto">
+      <div className="flex flex-col justify-center items-center bg-mob_auth bg-bgOverlay bg-no-repeat bg-cover bg-center px-5 py-8 ">
         <GoogleBtn />
         <LoginForm />
         <Link
@@ -18,6 +18,6 @@ export const Login = () => {
         </Link>
       </div>
       <Quote />
-    </>
+    </div>
   );
 };

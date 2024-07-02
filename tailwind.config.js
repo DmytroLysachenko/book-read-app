@@ -16,6 +16,7 @@ export default {
         '170px': '170px',
         '130px': '130px',
         '200px': '200px',
+        '215px': '215px',
         '230px': '230px',
         '42px': '42px',
         25: '100px',
@@ -24,6 +25,7 @@ export default {
         '14px': '14px',
         15: '60px',
         70: '280px',
+        '270px': '270px',
         noHeaderMob: 'calc(100vh - 60px)',
       },
       fontSize: { '34px': '34px', '14px': '14px', '19px': '19px' },
@@ -49,6 +51,7 @@ export default {
         gray_btn: '#6D7A8D',
         main_bg_theme: 'rgb(233, 235, 240)',
         backdrop: 'rgba(43, 43, 43, 0.1)',
+        gray_heading: '#B1B5C2',
       },
       backgroundImage: {
         headerShadow:

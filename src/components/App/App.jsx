@@ -13,7 +13,10 @@ import { Library } from '../../pages/Library/Library';
 import { PrivateRoute, PublicRoute } from '../../routes';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { Home } from '../../pages/Home/Home';
-import { getUserDataThunk } from '../../redux/books/operations';
+import {
+  getUserDataThunk,
+  loadCurrentPlanningThunk,
+} from '../../redux/books/operations';
 import { Backdrop } from '../Backdrop/Backdrop';
 import { ReviewModal } from '../ReviewModal/ReviewModal';
 import { addReviewingBook, removeReviewingBook } from '../../redux/books/slice';
@@ -30,13 +33,14 @@ export const App = () => {
     setReviewModalIsOpen(false);
   };
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(refreshUserThunk());
   }, [dispatch]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isLoggedIn) {
       dispatch(getUserDataThunk());
+      dispatch(loadCurrentPlanningThunk());
     }
   }, [dispatch, isLoggedIn]);
   return (
