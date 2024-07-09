@@ -9,12 +9,16 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { selectGoingToReadBooks } from '../../redux/books/selectors';
 import { formatDate } from '../../helpers/formatDate';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+import { startPlanningThunk } from '../../redux/books/operations';
 
 export const StartTrainingForm = ({ closeModal }) => {
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
+  const [selectedBooks, setSelectedBooks] = useState(null);
   const books = useSelector(selectGoingToReadBooks);
+  const animatedComponents = makeAnimated();
   const options = useMemo(
     () =>
       books.map((book) => ({
@@ -30,9 +34,12 @@ export const StartTrainingForm = ({ closeModal }) => {
         className=" flex flex-col gap-5 items-center max-w-70 mx-auto"
         onSubmit={(event) => {
           event.preventDefault();
+          console.log(selectedBooks);
+          dispatch(
+            startPlanningThunk({ startDate, endDate, books: selectedBooks })
+          );
           setStartDate(null);
           setEndDate(null);
-          console.log(formatDate(startDate), formatDate(endDate));
         }}
       >
         <button
@@ -56,7 +63,7 @@ export const StartTrainingForm = ({ closeModal }) => {
             required={true}
             dateFormat="yyyy-MM-dd"
             selected={startDate}
-            onChange={(date) => setStartDate(date)}
+            onChange={(date) => setStartDate(formatDate(date))}
             name="startDate"
             placeholderText="Start"
             className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 max-w-70"
@@ -68,7 +75,7 @@ export const StartTrainingForm = ({ closeModal }) => {
           <DatePicker
             dateFormat="yyyy-MM-dd"
             selected={endDate}
-            onChange={(date) => setEndDate(date)}
+            onChange={(date) => setEndDate(formatDate(date))}
             name="endDate"
             placeholderText="Finish"
             className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 max-w-70"
@@ -78,6 +85,10 @@ export const StartTrainingForm = ({ closeModal }) => {
         <div className="relative">
           <Select
             options={options}
+            components={animatedComponents}
+            required
+            isMulti
+            name="books"
             isSearchable={true}
             className="min-w-270px min-h-10"
             placeholder="Choose book from the library"
@@ -91,6 +102,7 @@ export const StartTrainingForm = ({ closeModal }) => {
                 ':hover': {
                   borderColor: '#a6abb9',
                   outline: 'none',
+                  cursor: 'pointer',
                 },
                 ':active': {
                   outline: 'none',
@@ -104,10 +116,13 @@ export const StartTrainingForm = ({ closeModal }) => {
               indicatorSeparator: () => ({
                 visibility: 'hidden',
               }),
-              indicatorsContainer: (styles) => ({
+              indicatorsContainer: () => ({
                 display: 'none',
               }),
             }}
+            onChange={(options) =>
+              setSelectedBooks(options.map((opt) => opt.value))
+            }
           />
           <IoIosArrowDown className="w-5 h-5 absolute top-5 -translate-y-1/2 right-2 pointer-events-none" />
         </div>

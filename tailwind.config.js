@@ -11,6 +11,7 @@ export default {
         book: '0 2px 3px 0 rgba(9, 30, 63, 0.1)',
         input: 'inset 0 1px 2px 0 rgba(29, 29, 27, 0.15)',
         reviewModal: '10px 10px 20px 0 rgba(9, 30, 63, 0.2)',
+        counter: '4px 4px 8px 0 rgba(36, 42, 55, 0.15)',
       },
       spacing: {
         '170px': '170px',
@@ -52,6 +53,7 @@ export default {
         main_bg_theme: 'rgb(233, 235, 240)',
         backdrop: 'rgba(43, 43, 43, 0.1)',
         gray_heading: '#B1B5C2',
+        planningBorder: '#e0e5eb',
       },
       backgroundImage: {
         headerShadow:
