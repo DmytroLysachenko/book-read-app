@@ -69,7 +69,9 @@ const booksSlice = createSlice({
         state.planning = payload.planning;
       })
       .addCase(loadCurrentPlanningThunk.fulfilled, (state, { payload }) => {
-        state.planning = payload.planning;
+        if (payload) {
+          state.planning = payload.planning;
+        }
       })
       .addMatcher(
         isAnyOf(

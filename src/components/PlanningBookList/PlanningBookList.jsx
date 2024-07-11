@@ -1,6 +1,6 @@
 import { PlanningBookItem } from '../PlanningBookItem/PlanningBookItem';
 
-export const PlanningBookList = ({ books }) => {
+export const PlanningBookList = ({ books, removeNewPlanningBook }) => {
   return (
     <>
       <div className="divider m-0 w-70 mx-auto h-px mt-8"></div>
@@ -10,6 +10,7 @@ export const PlanningBookList = ({ books }) => {
             <PlanningBookItem
               key={book._id}
               book={book}
+              removeNewPlanningBook={removeNewPlanningBook}
             />
           ))
         ) : (

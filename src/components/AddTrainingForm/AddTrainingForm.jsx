@@ -12,11 +12,16 @@ import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { startPlanningThunk } from '../../redux/books/operations';
 
-export const StartTrainingForm = ({ closeModal }) => {
-  const dispatch = useDispatch();
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [selectedBooks, setSelectedBooks] = useState(null);
+export const AddTrainingForm = ({
+  closeModal,
+  setNewPlanningStartDate,
+  setNewPlanningEndDate,
+  addNewPlanningBook,
+  newPlanning,
+}) => {
+  const [startDate, setStartDate] = useState(newPlanning.startDate);
+  const [endDate, setEndDate] = useState(newPlanning.endDate);
+  const [selectedBook, setSelectedBook] = useState(null);
   const books = useSelector(selectGoingToReadBooks);
   const animatedComponents = makeAnimated();
   const options = useMemo(
@@ -34,12 +39,10 @@ export const StartTrainingForm = ({ closeModal }) => {
         className=" flex flex-col gap-5 items-center max-w-70 mx-auto"
         onSubmit={(event) => {
           event.preventDefault();
-          console.log(selectedBooks);
-          dispatch(
-            startPlanningThunk({ startDate, endDate, books: selectedBooks })
-          );
-          setStartDate(null);
-          setEndDate(null);
+          addNewPlanningBook(selectedBook);
+          setNewPlanningEndDate(endDate);
+          setNewPlanningStartDate(startDate);
+          closeModal();
         }}
       >
         <button
@@ -87,7 +90,6 @@ export const StartTrainingForm = ({ closeModal }) => {
             options={options}
             components={animatedComponents}
             required
-            isMulti
             name="books"
             isSearchable={true}
             className="min-w-270px min-h-10"
@@ -120,9 +122,7 @@ export const StartTrainingForm = ({ closeModal }) => {
                 display: 'none',
               }),
             }}
-            onChange={(options) =>
-              setSelectedBooks(options.map((opt) => opt.value))
-            }
+            onChange={(option) => setSelectedBook(option.value)}
           />
           <IoIosArrowDown className="w-5 h-5 absolute top-5 -translate-y-1/2 right-2 pointer-events-none" />
         </div>

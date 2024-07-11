@@ -1,6 +1,6 @@
 import { PiBookOpenText } from 'react-icons/pi';
-
-export const PlanningBookItem = ({ book }) => {
+import { MdOutlineDelete } from 'react-icons/md';
+export const PlanningBookItem = ({ book, removeNewPlanningBook }) => {
   const { title, author, publishYear, pagesTotal } = book;
   return (
     <>
@@ -11,6 +11,19 @@ export const PlanningBookItem = ({ book }) => {
             color="#A6ABB9"
           />
           {title}
+          {title !== '...' && (
+            <button
+              className="absolute -right-8 top-1/2 -translate-y-1/2 w-6 h-6"
+              onClick={() => {
+                removeNewPlanningBook(book._id);
+              }}
+            >
+              <MdOutlineDelete
+                className="w-6 h-6"
+                color="#A6ABB9"
+              />
+            </button>
+          )}
         </h4>
 
         <ul className="grid grid-cols-2 min-w-200px mx-auto gap-4 text-xs">
