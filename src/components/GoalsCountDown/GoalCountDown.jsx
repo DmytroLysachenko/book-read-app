@@ -1,17 +1,16 @@
 import { useMemo, useState } from 'react';
 import { countDays } from '../../helpers/formatDate';
 
-export const YearCountDown = () => {
+export const GoalCountDown = ({ goalDeadline }) => {
   const [today, setToday] = useState(new Date());
+
   setInterval(() => {
     setToday(new Date());
   }, 1000);
-  const nextYear = useMemo(() => {
-    return new Date(today.getFullYear() + 1, 0);
-  }, [today]);
+
   const days = useMemo(() => {
-    return countDays(today, nextYear);
-  }, [today, nextYear]);
+    return countDays(today, goalDeadline);
+  }, [today, goalDeadline]);
   const hours = useMemo(() => {
     return 23 - today.getHours();
   }, [today]);
@@ -23,8 +22,8 @@ export const YearCountDown = () => {
   }, [today]);
   return (
     <>
-      <h2 className="block w-70 mx-auto text-center text-sm text-gray_text">
-        End of the year countdown
+      <h2 className="block w-70 mx-auto text-center text-sm mt-6 text-gray_text">
+        Goals countdown
       </h2>
       <div className="flex justify-evenly gap-7 bg-white px-8 py-2 mx-auto mt-2 w-70 shadow-counter">
         <div className="flex flex-col items-center justify-center ">

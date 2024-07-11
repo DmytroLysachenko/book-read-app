@@ -12,8 +12,10 @@ import { AddButton } from '../../components/AddButton/AddButton';
 import { AddTrainingForm } from '../../components/AddTrainingForm/AddTrainingForm';
 import { Button } from '../../components/Button/Button';
 import { startPlanningThunk } from '../../redux/books/operations';
-import { countDays } from '../../helpers/formatDate';
+import { countDays, formatDateToObj } from '../../helpers/formatDate';
 import { YearCountDown } from '../../components/YearCountDown/YearCountDown';
+import { GoalCountDown } from '../../components/GoalsCountDown/GoalCountDown';
+import { MyGoalsActive } from '../../components/MyGoalsActive/MyGoalsActive';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -62,7 +64,13 @@ export const Home = () => {
   };
   return (
     <div className="h-noHeaderMob overflow-y-scroll py-5">
-      <YearCountDown />
+      {!isAddModalOpen && planning && (
+        <>
+          <YearCountDown />
+          <GoalCountDown goalDeadline={formatDateToObj(planning.endDate)} />
+          <MyGoalsActive planning={planning} />
+        </>
+      )}
       {!isAddModalOpen && !planning && (
         <>
           <MyGoals
