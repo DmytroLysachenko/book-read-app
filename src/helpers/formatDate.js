@@ -25,3 +25,19 @@ export const createArrayOfDates = (startDate, endDate) => {
     startDate.setDate(startDate.getDate() + 1);
   }
 };
+
+export const countDays = (startDate, endDate) => {
+  if (typeof startDate === 'string' && typeof endDate === 'string') {
+    const oneDay = 24 * 60 * 60 * 1000;
+    const objStartDate = formatDateToObj(startDate);
+    const objEndDate = formatDateToObj(endDate);
+    const diffDays = Math.round(Math.abs((objStartDate - objEndDate) / oneDay));
+    return diffDays;
+  }
+  if (typeof startDate === 'object' && typeof endDate === 'object') {
+    const oneDay = 24 * 60 * 60 * 1000;
+    const diffDays = Math.round(Math.abs((startDate - endDate) / oneDay));
+    return diffDays;
+  }
+  return 0;
+};

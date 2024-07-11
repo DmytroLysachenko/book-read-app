@@ -1,6 +1,6 @@
 import { AmountCounter } from '../AmountCounter/AmountCounter';
 
-export const GoalsCounter = ({ planning }) => {
+export const MyGoals = ({ books, days }) => {
   return (
     <div className="w-70 mx-auto shadow-book">
       <div className=" bg-gray_heading h-15 flex items-center justify-center">
@@ -10,11 +10,11 @@ export const GoalsCounter = ({ planning }) => {
       </div>
       <div className="bg-white flex gap-5 justify-center py-11 px-">
         <AmountCounter
-          number={planning.books.length}
+          number={books}
           title={'books'}
         />
         <AmountCounter
-          number={planning.duration}
+          number={days}
           title={'days'}
         />
       </div>

@@ -1,5 +1,5 @@
 import { FaArrowLeftLong } from 'react-icons/fa6';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useMemo, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -10,7 +10,6 @@ import { selectGoingToReadBooks } from '../../redux/books/selectors';
 import { formatDateToString } from '../../helpers/formatDate';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-import { startPlanningThunk } from '../../redux/books/operations';
 
 export const AddTrainingForm = ({
   closeModal,
