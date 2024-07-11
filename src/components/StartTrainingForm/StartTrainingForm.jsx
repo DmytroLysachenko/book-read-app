@@ -7,7 +7,7 @@ import { RiCalendar2Line } from 'react-icons/ri';
 
 import { IoIosArrowDown } from 'react-icons/io';
 import { selectGoingToReadBooks } from '../../redux/books/selectors';
-import { formatDate } from '../../helpers/formatDate';
+import { formatDateToString } from '../../helpers/formatDate';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { startPlanningThunk } from '../../redux/books/operations';
@@ -63,7 +63,7 @@ export const StartTrainingForm = ({ closeModal }) => {
             required={true}
             dateFormat="yyyy-MM-dd"
             selected={startDate}
-            onChange={(date) => setStartDate(formatDate(date))}
+            onChange={(date) => setStartDate(formatDateToString(date))}
             name="startDate"
             placeholderText="Start"
             className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 max-w-70"
@@ -75,7 +75,7 @@ export const StartTrainingForm = ({ closeModal }) => {
           <DatePicker
             dateFormat="yyyy-MM-dd"
             selected={endDate}
-            onChange={(date) => setEndDate(formatDate(date))}
+            onChange={(date) => setEndDate(formatDateToString(date))}
             name="endDate"
             placeholderText="Finish"
             className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 max-w-70"
