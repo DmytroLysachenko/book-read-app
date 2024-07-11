@@ -3,13 +3,14 @@ import { countDays } from '../../helpers/formatDate';
 
 export const YearCountDown = () => {
   const [today, setToday] = useState(new Date());
+
   setInterval(() => {
     setToday(new Date());
   });
 
   const nextYear = useMemo(() => {
     return new Date(today.getFullYear() + 1, 0);
-  }, []);
+  }, [today]);
   const days = useMemo(() => {
     return countDays(today, nextYear);
   }, [today, nextYear]);
