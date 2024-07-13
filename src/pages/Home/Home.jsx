@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { MyGoals } from '../../components/MyGoals/MyGoals';
 import {
+  selectCurrentlyReadingBooks,
   selectCurrentPlanning,
+  selectFinishedReadingBooks,
   selectGoingToReadBooks,
   selectIsLoading,
 } from '../../redux/books/selectors';
@@ -62,6 +64,7 @@ export const Home = () => {
   const closeAddModal = () => {
     setIsAddModalOpen(false);
   };
+
   return (
     <div className="h-noHeaderMob overflow-y-scroll py-5">
       {!isAddModalOpen && planning && (
@@ -69,6 +72,10 @@ export const Home = () => {
           <YearCountDown />
           <GoalCountDown goalDeadline={formatDateToObj(planning.endDate)} />
           <MyGoalsActive planning={planning} />
+          <PlanningBookList
+            books={planning.books}
+            type={'inProgress'}
+          />
         </>
       )}
       {!isAddModalOpen && !planning && (
