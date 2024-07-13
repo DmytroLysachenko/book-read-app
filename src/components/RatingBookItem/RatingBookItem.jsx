@@ -2,7 +2,7 @@ import { PiBookOpenText } from 'react-icons/pi';
 
 export const RatingBookItem = ({ book, openReviewModal }) => {
   const { title, author, publishYear, pagesTotal, rating } = book;
-  console.log('rating', rating);
+
   const ratingArr = Array(5).fill(false);
   ratingArr[rating - 1] = true;
   return (

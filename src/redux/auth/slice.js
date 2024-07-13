@@ -35,7 +35,6 @@ const authSlice = createSlice({
         toast.success('You are logged in now!');
       })
       .addCase(googleLogInThunk.fulfilled, (state, { payload }) => {
-        console.log(payload);
         toast.success('You are logged in now!');
       })
       .addCase(logOutThunk.fulfilled, (state) => {

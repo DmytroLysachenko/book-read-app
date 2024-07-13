@@ -49,7 +49,6 @@ const booksSlice = createSlice({
         toast.success('Book deleted');
       })
       .addCase(addBookThunk.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.goingToRead.push(payload);
         toast.success('Book added!');
       })

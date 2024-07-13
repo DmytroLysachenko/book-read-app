@@ -76,6 +76,7 @@ export const Home = () => {
             books={planning.books}
             type={'inProgress'}
           />
+          <ChartPlanning planning={planning} />
         </>
       )}
       {!isAddModalOpen && !planning && (

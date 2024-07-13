@@ -15,7 +15,6 @@ export const AddBookForm = ({ closeModal }) => {
           pagesTotal: '',
         }}
         onSubmit={({ title, author, publicationDate, pagesTotal }, actions) => {
-          console.log(publicationDate);
           const publishYear = Number(publicationDate.slice(0, 4));
           dispatch(
             addBookThunk({

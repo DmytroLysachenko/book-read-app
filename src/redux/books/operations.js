@@ -43,7 +43,7 @@ export const addReviewThunk = createAsyncThunk(
         `/book/review/${info._id}`,
         info.values
       );
-      console.log(data);
+
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);

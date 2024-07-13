@@ -13,3 +13,19 @@ body {
   background-color: rgb(233, 235, 240);
   color: #242a37;
 }
+
+.MuiChartsAxis-tickLabel {
+  display: none;
+}
+
+.MuiChartsAxis-line {
+  stroke: #b1b5c2 !important;
+}
+
+.MuiChartsLegend-series {
+  display: none;
+}
+
+.css-149t9ze-MuiChartsSurface-root {
+  transform: translateY(20px) scale(1.3);
+}

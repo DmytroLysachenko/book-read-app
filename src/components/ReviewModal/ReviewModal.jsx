@@ -13,7 +13,6 @@ export const ReviewModal = ({ closeModal }) => {
       <Formik
         initialValues={{ rating, feedback }}
         onSubmit={(values) => {
-          console.log('values:', values);
           dispatch(addReviewThunk({ values, _id }));
           closeModal();
         }}
@@ -29,6 +28,7 @@ export const ReviewModal = ({ closeModal }) => {
               <Field
                 name="feedback"
                 component="textarea"
+                required
                 rows="7"
                 className="border border-solid border-black w-60 p-2 resize-none"
               />

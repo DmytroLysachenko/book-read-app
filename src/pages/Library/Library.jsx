@@ -33,7 +33,7 @@ export const Library = ({ openReviewModal }) => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(
     !isLoading && !books.length
   );
-  console.log(!isLoading && !books.length);
+
   const closeInitialModal = () => {
     setIsInitialModalOpen(false);
   };
