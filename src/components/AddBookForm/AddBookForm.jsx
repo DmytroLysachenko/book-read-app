@@ -2,25 +2,26 @@ import { Field, Form, Formik } from 'formik';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import { useDispatch } from 'react-redux';
 import { addBookThunk } from '../../redux/books/operations';
+import DatePicker from 'react-datepicker';
+import { useState } from 'react';
 export const AddBookForm = ({ closeModal }) => {
   const dispatch = useDispatch();
   const labelClass = 'flex flex-col gap-2 text-gray_text  text-sm ';
+  const [publicationYear, setPublicationYear] = useState(new Date());
   return (
     <div className="py-6 w-full h-full">
       <Formik
         initialValues={{
           title: '',
           author: '',
-          publicationDate: '',
           pagesTotal: '',
         }}
-        onSubmit={({ title, author, publicationDate, pagesTotal }, actions) => {
-          const publishYear = Number(publicationDate.slice(0, 4));
+        onSubmit={({ title, author, pagesTotal }, actions) => {
           dispatch(
             addBookThunk({
               title,
               author,
-              publishYear,
+              publishYear: publicationYear.getFullYear(),
               pagesTotal,
             })
           );
@@ -72,10 +73,11 @@ export const AddBookForm = ({ closeModal }) => {
             htmlFor="publicationDate"
           >
             Publication date
-            <Field
-              type="date"
-              name="publicationDate"
-              placeholder="..."
+            <DatePicker
+              selected={publicationYear}
+              onChange={(value) => setPublicationYear(value)}
+              showYearPicker
+              dateFormat="yyyy"
               className="py-3 px-3 h-42px text-placeholder_text bg-google_white font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text  min-w-70"
             />
           </label>

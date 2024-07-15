@@ -19,9 +19,9 @@ export const ChartPlanning = ({ planning }) => {
   return (
     <div className="mx-auto w-70 bg-white shadow-chart mt-8 relative">
       <h2 className="text-xs uppercase absolute left-6 top-6">
-        Amont of pages / DAY{' '}
-        <span className="inline-flex ml-1 bg-google_white w-4 h-4 items-center justify-center">
-          {planCurve[planCurve.length - 1]}
+        Amount of pages / DAY{' '}
+        <span className="inline-flex ml-1 bg-google_white w-5 h-5 items-center justify-center">
+          {Math.round(planCurve[planCurve.length - 1])}
         </span>
       </h2>
       <LineChart

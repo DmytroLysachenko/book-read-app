@@ -29,10 +29,11 @@ export const planPagesCurve = (planning, passedTimeArray, readPages) => {
   const planCurve = Array(passedTimeArray.length).fill(planning.pagesPerDay);
 
   for (let index = 1; index < passedTimeArray.length; index++) {
-    planCurve[index] =
+    planCurve[index] = Math.round(
       (totalPages(planning, passedTimeArray) -
         totalPagesRead(index, readPages)) /
-      remainingDays(planning, passedTimeArray);
+        remainingDays(planning, passedTimeArray)
+    );
   }
   return planCurve;
 };

@@ -18,6 +18,7 @@ import { countDays, formatDateToObj } from '../../helpers/formatDate';
 import { YearCountDown } from '../../components/YearCountDown/YearCountDown';
 import { GoalCountDown } from '../../components/GoalsCountDown/GoalCountDown';
 import { MyGoalsActive } from '../../components/MyGoalsActive/MyGoalsActive';
+import { ResultTable } from '../../components/ResultTable/ResultTable';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -77,6 +78,7 @@ export const Home = () => {
             type={'inProgress'}
           />
           <ChartPlanning planning={planning} />
+          <ResultTable planning={planning} />
         </>
       )}
       {!isAddModalOpen && !planning && (
