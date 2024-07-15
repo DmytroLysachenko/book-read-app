@@ -52,7 +52,7 @@ export const AddBookForm = ({ closeModal }) => {
               type="text"
               name="title"
               placeholder="..."
-              className="py-3 px-3 h-42px text-placeholder_text bg-google_white font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text  min-w-70"
+              className="py-3 px-3 h-42px text-deep_blue placeholder:text-placeholder_text  font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text  min-w-70"
             />
           </label>
 
@@ -65,20 +65,20 @@ export const AddBookForm = ({ closeModal }) => {
               type="text"
               name="author"
               placeholder="..."
-              className="py-3 px-3 h-42px text-placeholder_text bg-google_white font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text   min-w-70"
+              className="py-3 px-3 h-42px text-deep_blue placeholder:text-placeholder_text  font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text   min-w-70"
             />
           </label>
           <label
             className={labelClass}
             htmlFor="publicationDate"
           >
-            Publication date
+            Publication year
             <DatePicker
               selected={publicationYear}
               onChange={(value) => setPublicationYear(value)}
               showYearPicker
               dateFormat="yyyy"
-              className="py-3 px-3 h-42px text-placeholder_text bg-google_white font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text  min-w-70"
+              className="py-3 px-3 h-42px text-deep_blue placeholder:text-placeholder_text  font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text  min-w-70"
             />
           </label>
           <label
@@ -90,7 +90,7 @@ export const AddBookForm = ({ closeModal }) => {
               type="number"
               name="pagesTotal"
               placeholder="..."
-              className="py-3 px-3 h-42px text-placeholder_text bg-google_white font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text  min-w-70"
+              className="py-3 px-3 h-42px text-deep_blue placeholder:text-placeholder_text  font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text  min-w-70"
             />
           </label>
           <button

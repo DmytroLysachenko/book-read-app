@@ -3,7 +3,7 @@ import { ActiveAmountCounter } from '../ActiveAmountCounter/ActiveAmountCounter'
 export const MyGoalsActive = ({ planning }) => {
   const booksRead = planning.books.reduce((acc, book) => {
     if (book.pagesTotal !== book.pagesFinished) {
-      return acc++;
+      return ++acc;
     }
     return acc;
   }, 0);

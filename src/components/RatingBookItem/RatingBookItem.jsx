@@ -1,10 +1,11 @@
 import { PiBookOpenText } from 'react-icons/pi';
+import { IoIosStar, IoIosStarOutline } from 'react-icons/io';
 
 export const RatingBookItem = ({ book, openReviewModal }) => {
   const { title, author, publishYear, pagesTotal, rating } = book;
 
-  const ratingArr = Array(5).fill(false);
-  ratingArr[rating - 1] = true;
+  const ratingArr = Array(5).fill(null);
+
   return (
     <li className="bg-white pt-5 pb-7 flex flex-col max-w-70 shadow-book px-14">
       <h4 className="w-200px mx-auto mb-7 relative text-wrap text-xs">
@@ -23,42 +24,25 @@ export const RatingBookItem = ({ book, openReviewModal }) => {
         <li>{pagesTotal}</li>
         <li className="text-gray_text">Rating:</li>{' '}
         <li>
-          <div className="rating rating-sm">
-            <input
-              type="radio"
-              name="rating-5"
-              className="mask mask-star-2 bg-orangeBtn"
-              checked={ratingArr[0]}
-              disabled
-            />
-            <input
-              type="radio"
-              name="rating-5"
-              className="mask mask-star-2 bg-orangeBtn"
-              checked={ratingArr[1]}
-              disabled
-            />
-            <input
-              type="radio"
-              name="rating-5"
-              className="mask mask-star-2 bg-orangeBtn"
-              checked={ratingArr[2]}
-              disabled
-            />
-            <input
-              type="radio"
-              name="rating-5"
-              className="mask mask-star-2 bg-orangeBtn"
-              checked={ratingArr[3]}
-              disabled
-            />
-            <input
-              type="radio"
-              name="rating-5"
-              className="mask mask-star-2 bg-orangeBtn"
-              checked={ratingArr[4]}
-              disabled
-            />
+          <div className="flex gap-1">
+            {ratingArr.map((ranked, index) => {
+              if (index <= rating - 1) {
+                return (
+                  <IoIosStar
+                    color="#FF6B08"
+                    className="w-3.5 h-3.5"
+                    key={book._id + index + ranked}
+                  />
+                );
+              }
+              return (
+                <IoIosStarOutline
+                  color="#FF6B08"
+                  className="w-3.5 h-3.5"
+                  key={book._id + index + ranked}
+                />
+              );
+            })}
           </div>
         </li>
       </ul>
