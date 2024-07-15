@@ -1,10 +1,11 @@
-export const formatDateToString = (date) => {
+export const formatDateToString = (date, zero) => {
   const d = new Date(date);
   let month = '' + (d.getMonth() + 1);
   let day = '' + d.getDate();
   let year = d.getFullYear();
 
   if (day.length < 2) day = '0' + day;
+  if (month.length < 2 && zero === 2) month = '0' + month;
 
   return [year, month, day].join('-');
 };

@@ -1,6 +1,12 @@
 import { ActiveAmountCounter } from '../ActiveAmountCounter/ActiveAmountCounter';
 
 export const MyGoalsActive = ({ planning }) => {
+  const booksRead = planning.books.reduce((acc, book) => {
+    if (book.pagesTotal !== book.pagesFinished) {
+      return acc++;
+    }
+    return acc;
+  }, 0);
   return (
     <div className="w-70 mx-auto shadow-book mt-10">
       <div className=" bg-gray_heading h-15 flex items-center justify-center">
@@ -18,7 +24,7 @@ export const MyGoalsActive = ({ planning }) => {
           title={'Amount of days'}
         />
         <ActiveAmountCounter
-          number={planning.books.length - planning.__v}
+          number={booksRead}
           title={'Books lefts'}
         />
       </div>

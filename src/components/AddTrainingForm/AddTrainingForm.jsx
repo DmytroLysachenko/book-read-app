@@ -31,16 +31,17 @@ export const AddTrainingForm = ({
       })),
     [books]
   );
-
+  console.log(startDate, endDate);
   return (
     <div className="py-6 w-full h-full">
       <form
         className=" flex flex-col gap-5 items-center max-w-70 mx-auto"
         onSubmit={(event) => {
           event.preventDefault();
-          addNewPlanningBook(selectedBook);
+
           setNewPlanningEndDate(endDate);
           setNewPlanningStartDate(startDate);
+          addNewPlanningBook(selectedBook);
           closeModal();
         }}
       >
@@ -63,9 +64,12 @@ export const AddTrainingForm = ({
           <RiCalendar2Line className="absolute top-3 left-3 w-4 h-4 text-placeholder_text pointer-events-none" />
           <DatePicker
             required={true}
+            value={startDate}
             dateFormat="yyyy-MM-dd"
-            selected={startDate}
-            onChange={(date) => setStartDate(formatDateToString(date))}
+            onChange={(date) => {
+              console.log(formatDateToString(date, 2));
+              setStartDate(formatDateToString(date, 2));
+            }}
             name="startDate"
             placeholderText="Start"
             className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 max-w-70"
@@ -77,7 +81,10 @@ export const AddTrainingForm = ({
           <DatePicker
             dateFormat="yyyy-MM-dd"
             selected={endDate}
-            onChange={(date) => setEndDate(formatDateToString(date))}
+            onChange={(date) => {
+              console.log(formatDateToString(date, 2));
+              setEndDate(formatDateToString(date, 2));
+            }}
             name="endDate"
             placeholderText="Finish"
             className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 max-w-70"

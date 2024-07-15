@@ -1,18 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { MyGoals } from '../../components/MyGoals/MyGoals';
 import {
-  selectCurrentlyReadingBooks,
   selectCurrentPlanning,
-  selectFinishedReadingBooks,
   selectGoingToReadBooks,
   selectIsLoading,
 } from '../../redux/books/selectors';
 import { PlanningBookList } from '../../components/PlanningBookList/PlanningBookList';
 import { ChartPlanning } from '../../components/ChartPlanning/ChartPlanning';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AddButton } from '../../components/AddButton/AddButton';
 import { AddTrainingForm } from '../../components/AddTrainingForm/AddTrainingForm';
-import { Button } from '../../components/Button/Button';
+
 import { startPlanningThunk } from '../../redux/books/operations';
 import { countDays, formatDateToObj } from '../../helpers/formatDate';
 import { YearCountDown } from '../../components/YearCountDown/YearCountDown';
@@ -32,7 +30,7 @@ export const Home = () => {
     endDate: null,
     books: [],
   });
-
+  console.log(newPlanning);
   const setNewPlanningStartDate = (date) => {
     newPlanning.startDate = date;
   };
@@ -97,12 +95,18 @@ export const Home = () => {
             type="button"
             className="mx-auto my-8 px-9 py-3 bg-orangeBtn text-white block"
             onClick={() => {
-              dispatch(startPlanningThunk(newPlanning));
-              setNewPlanning({
-                startDate: null,
-                endDate: null,
-                books: [],
-              });
+              if (
+                newPlanning.books.length > 0 &&
+                newPlanning.startDate &&
+                newPlanning.endDate
+              ) {
+                dispatch(startPlanningThunk(newPlanning));
+                setNewPlanning({
+                  startDate: null,
+                  endDate: null,
+                  books: [],
+                });
+              }
             }}
           >
             Start Training

@@ -1,5 +1,4 @@
 import {
-  ChartsAxis,
   LineChart,
   lineElementClasses,
   markElementClasses,
@@ -14,6 +13,7 @@ export const ChartPlanning = ({ planning }) => {
   const startDate = formatDateToObj(planning.startDate);
   const today = new Date();
   const passedTimeArray = createArrayOfDates(startDate, today);
+  console.log(passedTimeArray);
   const readPages = countPagesPerDay(passedTimeArray, planning);
   const planCurve = planPagesCurve(planning, passedTimeArray, readPages);
   return (

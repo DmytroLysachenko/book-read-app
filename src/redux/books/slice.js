@@ -62,10 +62,10 @@ const booksSlice = createSlice({
         state.planning = payload;
       })
       .addCase(addReadPagesThunk.fulfilled, (state, { payload }) => {
-        state.currentlyReading = state.currentlyReading.map((book) =>
+        state.planning.books = state.planning.books.map((book) =>
           book._id === payload.book._id ? payload.book : book
         );
-        state.planning = payload.planning;
+        state.planning.stats = payload.planning.stats;
       })
       .addCase(loadCurrentPlanningThunk.fulfilled, (state, { payload }) => {
         if (payload) {

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import DatePicker from 'react-datepicker';
 import { Button } from '../Button/Button';
 import { Field, Form, Formik } from 'formik';
@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addReadPagesThunk } from '../../redux/books/operations';
 
 export const ResultTable = () => {
-  const today = useMemo(() => new Date());
+  const today = new Date();
   const dispatch = useDispatch();
   return (
     <div className="w-70 mx-auto bg-white mt-8 p-5 shadow-book">
@@ -14,7 +14,7 @@ export const ResultTable = () => {
       <div>
         <Formik
           initialValues={{
-            pages: null,
+            pages: '',
           }}
           onSubmit={({ pages }) => {
             dispatch(addReadPagesThunk({ pages }));
