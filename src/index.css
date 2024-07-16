@@ -37,3 +37,7 @@ body {
   position: absolute;
   width: 160px;
 }
+
+table {
+  scrollbar-width: thin;
+}

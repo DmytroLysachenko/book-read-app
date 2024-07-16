@@ -30,7 +30,7 @@ export const Home = () => {
     endDate: null,
     books: [],
   });
-  console.log(newPlanning);
+
   const setNewPlanningStartDate = (date) => {
     newPlanning.startDate = date;
   };

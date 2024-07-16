@@ -3,9 +3,8 @@ export const formatDateToString = (date, zero) => {
   let month = '' + (d.getMonth() + 1);
   let day = '' + d.getDate();
   let year = d.getFullYear();
-
-  if (day.length < 2) day = '0' + day;
-  if (month.length < 2 && zero === 2) month = '0' + month;
+  day = day.padStart(2, '0');
+  if (zero === 2) month = month.padStart(2, '0');
 
   return [year, month, day].join('-');
 };
