@@ -42,6 +42,7 @@ const authSlice = createSlice({
         state.refreshToken = null;
         state.name = null;
         state.email = null;
+        state.sid = null;
         state.isLoggedIn = false;
         toast.success('You are logged out now!');
       })

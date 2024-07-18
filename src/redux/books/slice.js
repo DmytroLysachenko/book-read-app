@@ -83,6 +83,7 @@ const booksSlice = createSlice({
           startPlanningThunk.rejected
         ),
         (state) => {
+          toast.error('Something went wrong!');
           state.error = true;
           state.loading = null;
         }

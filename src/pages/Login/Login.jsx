@@ -4,7 +4,7 @@ import { GoogleBtn } from '../../components/GoogleBtn/GoogleBtn';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import { Quote } from '../../components/Quote/Quote';
 
-export const Login = () => {
+const Login = () => {
   return (
     <div className="h-noHeaderMob overflow-y-auto">
       <div className="flex flex-col justify-center items-center bg-mob_auth bg-bgOverlay bg-no-repeat bg-cover bg-center px-5 py-8 ">
@@ -21,3 +21,5 @@ export const Login = () => {
     </div>
   );
 };
+
+export default Login;

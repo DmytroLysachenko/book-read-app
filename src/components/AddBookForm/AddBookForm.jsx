@@ -49,6 +49,7 @@ export const AddBookForm = ({ closeModal }) => {
           >
             Book title
             <Field
+              required
               type="text"
               name="title"
               placeholder="..."
@@ -62,6 +63,7 @@ export const AddBookForm = ({ closeModal }) => {
           >
             Author
             <Field
+              required
               type="text"
               name="author"
               placeholder="..."
@@ -74,6 +76,7 @@ export const AddBookForm = ({ closeModal }) => {
           >
             Publication year
             <DatePicker
+              required
               selected={publicationYear}
               onChange={(value) => setPublicationYear(value)}
               showYearPicker
@@ -88,6 +91,9 @@ export const AddBookForm = ({ closeModal }) => {
             Amount of pages
             <Field
               type="number"
+              min={1}
+              max={5000}
+              required
               name="pagesTotal"
               placeholder="..."
               className="py-3 px-3 h-42px text-deep_blue placeholder:text-placeholder_text  font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text  min-w-70"

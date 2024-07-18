@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import {
   selectCurrentlyReadingBooks,
@@ -10,13 +10,12 @@ import { BookList } from '../../components/BooksList/BookList';
 import { AddBookForm } from '../../components/AddBookForm/AddBookForm';
 import { useMemo, useState } from 'react';
 import { EmptyLibraryModal } from '../../components/EmptyLibraryModal/EmptyLibraryModal';
-import { getUserDataThunk } from '../../redux/books/operations';
+
 import { BookListTitle } from '../../components/BookListTitle/BookListTitle';
 import { AddButton } from '../../components/AddButton/AddButton';
 import { Link } from 'react-router-dom';
 
-export const Library = ({ openReviewModal }) => {
-  const dispatch = useDispatch();
+const Library = ({ openReviewModal }) => {
   const goingToReadBooks = useSelector(selectGoingToReadBooks);
   const currentlyReadingBooks = useSelector(selectCurrentlyReadingBooks);
   const finishedReadingBooks = useSelector(selectFinishedReadingBooks);
@@ -45,7 +44,7 @@ export const Library = ({ openReviewModal }) => {
   };
 
   return (
-    <div className="h-noHeaderMob overflow-auto flex flex-col items-center pb-20 relative z-0">
+    <div className="h-noHeaderMob overflow-auto flex flex-col items-center pb-20 relative scroll-smooth">
       {isInitialModalOpen && (
         <EmptyLibraryModal closeModal={closeInitialModal} />
       )}
@@ -77,7 +76,7 @@ export const Library = ({ openReviewModal }) => {
           />
         </>
       )}
-      {!currentlyReadingBooks.length && !isAddModalOpen && (
+      {!isAddModalOpen && (
         <>
           <Link
             to="/"
@@ -94,3 +93,5 @@ export const Library = ({ openReviewModal }) => {
     </div>
   );
 };
+
+export default Library;

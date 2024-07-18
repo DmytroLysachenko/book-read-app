@@ -5,11 +5,18 @@ import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import { GuestHeader } from '../GuestHeader/GuestHeader';
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, newPlanning, openConfirmModal }) => {
   const isUser = useSelector(selectIsLoggedIn);
   return (
     <>
-      {isUser ? <UserHeader /> : <GuestHeader />}
+      {isUser ? (
+        <UserHeader
+          newPlanning={newPlanning}
+          openConfirmModal={openConfirmModal}
+        />
+      ) : (
+        <GuestHeader />
+      )}
       <Suspense fallback={<Loader />}>{children}</Suspense>
     </>
   );

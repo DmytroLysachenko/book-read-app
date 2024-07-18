@@ -19,7 +19,9 @@ export const RegisterForm = () => {
           className="flex flex-col gap-2 text-white font-semibold text-sm"
           htmlFor="name"
         >
-          Name
+          <div>
+            Name <span className="text-orangeBtn inline">*</span>
+          </div>
           <Field
             type="text"
             name="name"
@@ -31,7 +33,9 @@ export const RegisterForm = () => {
           className="flex flex-col gap-2 text-white font-semibold text-sm"
           htmlFor="email"
         >
-          Email
+          <div>
+            Email <span className="text-orangeBtn inline">*</span>
+          </div>
           <Field
             type="email"
             name="email"
@@ -44,7 +48,9 @@ export const RegisterForm = () => {
           className="flex flex-col gap-2 text-white font-semibold text-sm"
           htmlFor="password"
         >
-          Password
+          <div>
+            Password <span className="text-orangeBtn inline">*</span>
+          </div>
           <Field
             type="password"
             name="password"
@@ -56,7 +62,9 @@ export const RegisterForm = () => {
           className="flex flex-col gap-2 text-white font-semibold text-sm"
           htmlFor="confirmPassword"
         >
-          Confirm password
+          <div>
+            Confirm password <span className="text-orangeBtn inline">*</span>
+          </div>
           <Field
             type="password"
             name="confirmPassword"

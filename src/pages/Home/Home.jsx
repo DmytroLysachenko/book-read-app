@@ -18,44 +18,20 @@ import { GoalCountDown } from '../../components/GoalsCountDown/GoalCountDown';
 import { MyGoalsActive } from '../../components/MyGoalsActive/MyGoalsActive';
 import { ResultTable } from '../../components/ResultTable/ResultTable';
 
-export const Home = () => {
+const Home = ({
+  newPlanning,
+  addNewPlanningBook,
+  removeNewPlanningBook,
+  setNewPlanningEndDate,
+  setNewPlanningStartDate,
+  setNewPlanning,
+}) => {
   const dispatch = useDispatch();
   const planning = useSelector(selectCurrentPlanning);
-  const isLoading = useSelector(selectIsLoading);
+
   const goingToReadBooks = useSelector(selectGoingToReadBooks);
 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [newPlanning, setNewPlanning] = useState({
-    startDate: null,
-    endDate: null,
-    books: [],
-  });
-
-  const setNewPlanningStartDate = (date) => {
-    newPlanning.startDate = date;
-  };
-  const setNewPlanningEndDate = (date) => {
-    newPlanning.endDate = date;
-  };
-  const addNewPlanningBook = (bookId) => {
-    if (!newPlanning.books.includes(bookId)) {
-      setNewPlanning((prev) => {
-        const { startDate, endDate, books } = prev;
-        books.push(bookId);
-        return { startDate, endDate, books };
-      });
-    }
-  };
-  const removeNewPlanningBook = (bookId) => {
-    if (newPlanning.books.includes(bookId)) {
-      setNewPlanning((prev) => {
-        const { startDate, endDate, books } = prev;
-        const index = books.indexOf(bookId);
-        books.splice(index, 1);
-        return { startDate, endDate, books };
-      });
-    }
-  };
 
   const openAddModal = () => {
     setIsAddModalOpen(true);
@@ -65,7 +41,7 @@ export const Home = () => {
   };
 
   return (
-    <div className="h-noHeaderMob overflow-y-scroll py-5">
+    <div className="h-noHeaderMob overflow-y-auto py-5 scroll-smooth">
       {!isAddModalOpen && planning && (
         <>
           <YearCountDown />
@@ -127,3 +103,4 @@ export const Home = () => {
     </div>
   );
 };
+export default Home;

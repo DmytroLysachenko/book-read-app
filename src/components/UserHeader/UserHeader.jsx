@@ -10,7 +10,7 @@ import {
   linkClass,
 } from '../../css/classes';
 
-export const UserHeader = () => {
+export const UserHeader = ({ newPlanning, openConfirmModal }) => {
   const userName = useSelector(selectUserName);
   const dispatch = useDispatch();
   return (
@@ -64,7 +64,15 @@ export const UserHeader = () => {
             type="button"
             className="text-sm underline font-light "
             onClick={() => {
-              dispatch(logOutThunk());
+              if (
+                newPlanning.books.length ||
+                newPlanning.startDate ||
+                newPlanning.endDate
+              ) {
+                openConfirmModal();
+              } else {
+                dispatch(logOutThunk());
+              }
             }}
           >
             Logout

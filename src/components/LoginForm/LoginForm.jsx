@@ -1,8 +1,9 @@
 import { Field, Form, Formik } from 'formik';
-
 import { Button } from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { logInThunk } from '../../redux/auth/operations';
+import { RedStar } from '../RedStar/RedStar';
+
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
@@ -19,7 +20,9 @@ export const LoginForm = () => {
           className="flex flex-col gap-2 text-white font-semibold text-sm"
           htmlFor="email"
         >
-          Email
+          <div>
+            Email <span className="text-orangeBtn inline">*</span>
+          </div>
           <Field
             type="email"
             name="email"
@@ -32,7 +35,9 @@ export const LoginForm = () => {
           className="flex flex-col gap-2 text-white font-semibold text-sm"
           htmlFor="password"
         >
-          Password
+          <div>
+            Password <span className="text-orangeBtn inline">*</span>
+          </div>
           <Field
             type="password"
             name="password"

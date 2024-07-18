@@ -7,7 +7,7 @@ export default {
     extend: {
       boxShadow: {
         google: '0 2px 2px 0 rgba(9, 30, 63, 0.15)',
-        gray_btn: 'box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25)',
+        gray_btn: '0 2px 4px 0 rgba(0, 0, 0, 0.25)',
         book: '0 2px 3px 0 rgba(9, 30, 63, 0.1)',
         input: 'inset 0 1px 2px 0 rgba(29, 29, 27, 0.15)',
         reviewModal: '10px 10px 20px 0 rgba(9, 30, 63, 0.2)',

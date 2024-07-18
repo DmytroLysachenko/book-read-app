@@ -7,15 +7,26 @@ import { createArrayOfDates, formatDateToObj } from '../../helpers/formatDate';
 import {
   countPagesPerDay,
   planPagesCurve,
-} from '../../helpers/countPagesPerDay';
+  totalPages,
+} from '../../helpers/chartCalculations';
+import { useEffect, useMemo } from 'react';
 
 export const ChartPlanning = ({ planning }) => {
   const startDate = formatDateToObj(planning.startDate);
   const today = new Date();
   const passedTimeArray = createArrayOfDates(startDate, today);
-  console.log(passedTimeArray);
-  const readPages = countPagesPerDay(passedTimeArray, planning);
-  const planCurve = planPagesCurve(planning, passedTimeArray, readPages);
+  const readPagesArray = countPagesPerDay(passedTimeArray, planning);
+  const planCurve = planPagesCurve(planning, passedTimeArray, readPagesArray);
+  const allPages = useMemo(() => totalPages(planning), [planning]);
+  const readPages = useMemo(
+    () => planning.stats.reduce((acc, record) => acc + record.pagesCount, 0),
+    [planning.stats]
+  );
+  useEffect(() => {
+    if (readPages / allPages === 1) {
+      console.log('success');
+    }
+  });
   return (
     <div className="mx-auto w-70 bg-white shadow-chart mt-8 relative">
       <h2 className="text-xs uppercase absolute left-6 top-6">
@@ -28,7 +39,7 @@ export const ChartPlanning = ({ planning }) => {
         xAxis={[{ scaleType: 'point', data: passedTimeArray }]}
         series={[
           {
-            data: readPages,
+            data: readPagesArray,
             label: 'Act',
             color: 'orange',
           },

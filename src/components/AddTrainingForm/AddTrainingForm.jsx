@@ -63,7 +63,7 @@ export const AddTrainingForm = ({
         <div className="relative">
           <RiCalendar2Line className="absolute top-3 left-3 w-4 h-4 text-placeholder_text pointer-events-none" />
           <DatePicker
-            required={true}
+            required
             value={startDate}
             dateFormat="yyyy-MM-dd"
             onChange={(date) => {
@@ -72,7 +72,7 @@ export const AddTrainingForm = ({
             }}
             name="startDate"
             placeholderText="Start"
-            className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 max-w-70"
+            className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 w-70"
           />
           <IoIosArrowDown className="w-5 h-5 absolute top-5 -translate-y-1/2 right-2 pointer-events-none" />
         </div>
@@ -80,6 +80,7 @@ export const AddTrainingForm = ({
           <RiCalendar2Line className="absolute top-3 left-3 w-4 h-4 text-placeholder_text pointer-events-none" />
           <DatePicker
             dateFormat="yyyy-MM-dd"
+            required
             selected={endDate}
             onChange={(date) => {
               console.log(formatDateToString(date, 2));
@@ -87,7 +88,7 @@ export const AddTrainingForm = ({
             }}
             name="endDate"
             placeholderText="Finish"
-            className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 max-w-70"
+            className="overflow-hidden bg-transparent border border-solid border-placeholder_text focus:border focus:border-solid focus:border-placeholder_text cursor-pointer h-10 px-10 w-70"
           />
           <IoIosArrowDown className="w-5 h-5 absolute top-5 -translate-y-1/2 right-2 pointer-events-none" />
         </div>
@@ -98,11 +99,12 @@ export const AddTrainingForm = ({
             required
             name="books"
             isSearchable={true}
-            className="min-w-270px min-h-10"
             placeholder="Choose book from the library"
             styles={{
               control: (styles) => ({
                 ...styles,
+                width: '280px',
+                height: '40px',
                 backgroundColor: 'white',
                 borderRadius: '0',
                 borderColor: '#a6abb9',
@@ -133,7 +135,7 @@ export const AddTrainingForm = ({
           <IoIosArrowDown className="w-5 h-5 absolute top-5 -translate-y-1/2 right-2 pointer-events-none" />
         </div>
         <button
-          className="py-3 px-16 border border-solid border-deep_blue min-w-170px mt-8"
+          className="py-3 px-16 border border-solid border-deep_blue min-w-170px mt-3"
           type="submit"
         >
           Add

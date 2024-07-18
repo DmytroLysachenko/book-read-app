@@ -3,10 +3,14 @@ import { Button } from '../Button/Button';
 import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { addReadPagesThunk } from '../../redux/books/operations';
+import { totalPages } from '../../helpers/chartCalculations';
 
 export const ResultTable = ({ planning }) => {
   const today = new Date();
   const dispatch = useDispatch();
+  const totalPagesToRead =
+    totalPages(planning) -
+    planning.stats.reduce((acc, record) => acc + record.pagesCount, 0);
   return (
     <div className="w-70 mx-auto bg-white mt-8 p-5 shadow-book">
       <h2 className="text-center text-xs font-semibold uppercase">Result</h2>
@@ -33,6 +37,9 @@ export const ResultTable = ({ planning }) => {
               <Field
                 type="number"
                 name="pages"
+                min={1}
+                max={totalPagesToRead}
+                required
                 className="py-3 px-3 h-42px text-deep_blue  bg-google_white font-normal bg-transparent focus:bg-white focus:shadow-input border border-solid border-gray_text  max-w-28"
               />
             </label>
@@ -48,7 +55,7 @@ export const ResultTable = ({ planning }) => {
       <div className="flex w-full flex-col border-opacity-50">
         <div className="divider text-xs font-bold uppercase">Statistics</div>
       </div>
-      <table className="w-full max-h-25 overflow-y-auto block thin">
+      <table className="w-full max-h-25 overflow-y-auto block">
         <tbody className="w-full block">
           {planning.stats.map(({ time, pagesCount }, index) => {
             const [date, hour] = time.split(' ');
