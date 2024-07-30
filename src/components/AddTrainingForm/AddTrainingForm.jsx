@@ -31,7 +31,7 @@ export const AddTrainingForm = ({
       })),
     [books]
   );
-  console.log(startDate, endDate);
+
   return (
     <div className="py-6 w-full h-full">
       <form
@@ -67,7 +67,6 @@ export const AddTrainingForm = ({
             value={startDate}
             dateFormat="yyyy-MM-dd"
             onChange={(date) => {
-              console.log(formatDateToString(date, 2));
               setStartDate(formatDateToString(date, 2));
             }}
             name="startDate"
@@ -83,7 +82,6 @@ export const AddTrainingForm = ({
             required
             selected={endDate}
             onChange={(date) => {
-              console.log(formatDateToString(date, 2));
               setEndDate(formatDateToString(date, 2));
             }}
             name="endDate"

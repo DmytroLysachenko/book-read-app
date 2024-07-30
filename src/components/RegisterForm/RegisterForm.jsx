@@ -75,6 +75,7 @@ export const RegisterForm = () => {
         <Button
           type={'submit'}
           className={'py-5 w-70'}
+          onClick={() => {}}
         >
           Register
         </Button>

@@ -48,6 +48,7 @@ export const ReviewModal = ({ closeModal }) => {
                 className={
                   'text-sm py-3 w-25 max-h-10 flex items-center justify-center'
                 }
+                onClick={() => {}}
               >
                 Save
               </Button>

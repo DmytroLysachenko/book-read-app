@@ -47,6 +47,7 @@ export const ResultTable = ({ planning }) => {
           <Button
             type={'submit'}
             padding={'10px'}
+            onClick={() => {}}
           >
             Add result
           </Button>

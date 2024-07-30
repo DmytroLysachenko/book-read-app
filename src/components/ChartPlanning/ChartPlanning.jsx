@@ -9,7 +9,7 @@ import {
   planPagesCurve,
   totalPages,
 } from '../../helpers/chartCalculations';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
 export const ChartPlanning = ({ planning }) => {
   const startDate = formatDateToObj(planning.startDate);
@@ -22,11 +22,7 @@ export const ChartPlanning = ({ planning }) => {
     () => planning.stats.reduce((acc, record) => acc + record.pagesCount, 0),
     [planning.stats]
   );
-  useEffect(() => {
-    if (readPages / allPages === 1) {
-      console.log('success');
-    }
-  });
+
   return (
     <div className="mx-auto w-70 bg-white shadow-chart mt-8 relative">
       <h2 className="text-xs uppercase absolute left-6 top-6">

@@ -18,7 +18,6 @@ import { Backdrop } from '../Backdrop/Backdrop';
 import { ReviewModal } from '../ReviewModal/ReviewModal';
 import { addReviewingBook, removeReviewingBook } from '../../redux/books/slice';
 import { ConfirmModal } from '../ConfirmModal/ConfirmModal';
-import { selectCurrentPlanning } from '../../redux/books/selectors';
 
 const Home = lazy(() => import('../../pages/Home/Home'));
 const Library = lazy(() => import('../../pages/Library/Library'));
@@ -103,6 +102,7 @@ export const App = () => {
                   openConfirmModal={openConfirmModal}
                   setNewPlanningStartDate={setNewPlanningStartDate}
                   setNewPlanningEndDate={setNewPlanningEndDate}
+                  setNewPlanning={setNewPlanning}
                   addNewPlanningBook={addNewPlanningBook}
                   removeNewPlanningBook={removeNewPlanningBook}
                   newPlanning={newPlanning}

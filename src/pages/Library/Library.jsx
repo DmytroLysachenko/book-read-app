@@ -8,7 +8,7 @@ import {
 } from '../../redux/books/selectors';
 import { BookList } from '../../components/BooksList/BookList';
 import { AddBookForm } from '../../components/AddBookForm/AddBookForm';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { EmptyLibraryModal } from '../../components/EmptyLibraryModal/EmptyLibraryModal';
 
 import { BookListTitle } from '../../components/BookListTitle/BookListTitle';
@@ -33,6 +33,11 @@ const Library = ({ openReviewModal }) => {
     !isLoading && !books.length
   );
 
+  useEffect(() => {
+    if (!books.length) {
+      setIsInitialModalOpen(true);
+    }
+  }, []);
   const closeInitialModal = () => {
     setIsInitialModalOpen(false);
   };
@@ -86,7 +91,12 @@ const Library = ({ openReviewModal }) => {
           </Link>
         </>
       )}
-      {isAddModalOpen && <AddBookForm closeModal={closeAddModal} />}
+      {isAddModalOpen && (
+        <AddBookForm
+          totalBooks={books.length}
+          closeModal={closeAddModal}
+        />
+      )}
       {Boolean(books.length) && !isAddModalOpen && (
         <AddButton openModal={openAddModal} />
       )}

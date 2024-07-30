@@ -2,7 +2,6 @@ import { Field, Form, Formik } from 'formik';
 import { Button } from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { logInThunk } from '../../redux/auth/operations';
-import { RedStar } from '../RedStar/RedStar';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -27,7 +26,7 @@ export const LoginForm = () => {
             type="email"
             name="email"
             placeholder="your@email.com"
-            className="py-3 px-2 text-placeholder_text bg-google_white font-normal"
+            className="py-3 px-2 text-black bg-google_white font-normal"
           />
         </label>
 
@@ -42,12 +41,13 @@ export const LoginForm = () => {
             type="password"
             name="password"
             placeholder="Password"
-            className="py-3 px-2 text-placeholder_text bg-google_white font-normal"
+            className="py-3 px-2 text-black bg-google_white font-normal"
           />
         </label>
         <Button
           type={'submit'}
           className={'py-5 w-70'}
+          onClick={() => {}}
         >
           Login
         </Button>

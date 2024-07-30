@@ -7,11 +7,14 @@ import {
 } from '../../redux/books/selectors';
 import { PlanningBookList } from '../../components/PlanningBookList/PlanningBookList';
 import { ChartPlanning } from '../../components/ChartPlanning/ChartPlanning';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AddButton } from '../../components/AddButton/AddButton';
 import { AddTrainingForm } from '../../components/AddTrainingForm/AddTrainingForm';
 
-import { startPlanningThunk } from '../../redux/books/operations';
+import {
+  getUserDataThunk,
+  startPlanningThunk,
+} from '../../redux/books/operations';
 import { countDays, formatDateToObj } from '../../helpers/formatDate';
 import { YearCountDown } from '../../components/YearCountDown/YearCountDown';
 import { GoalCountDown } from '../../components/GoalsCountDown/GoalCountDown';
@@ -26,13 +29,15 @@ const Home = ({
   setNewPlanningStartDate,
   setNewPlanning,
 }) => {
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const dispatch = useDispatch();
   const planning = useSelector(selectCurrentPlanning);
 
   const goingToReadBooks = useSelector(selectGoingToReadBooks);
 
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-
+  useEffect(() => {
+    dispatch(getUserDataThunk());
+  }, []);
   const openAddModal = () => {
     setIsAddModalOpen(true);
   };

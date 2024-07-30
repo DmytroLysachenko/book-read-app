@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addBookThunk } from '../../redux/books/operations';
 import DatePicker from 'react-datepicker';
 import { useState } from 'react';
-export const AddBookForm = ({ closeModal }) => {
+export const AddBookForm = ({ closeModal, totalBooks }) => {
   const dispatch = useDispatch();
   const labelClass = 'flex flex-col gap-2 text-gray_text  text-sm ';
   const [publicationYear, setPublicationYear] = useState(new Date());
@@ -30,18 +30,20 @@ export const AddBookForm = ({ closeModal }) => {
         }}
       >
         <Form className=" flex flex-col gap-5 items-center max-w-70 mx-auto">
-          <button
-            type="button"
-            className="self-start"
-            onClick={() => {
-              closeModal();
-            }}
-          >
-            <FaArrowLeftLong
-              color="rgb(255 107 8)"
-              className="w-6 h-6  "
-            />
-          </button>
+          {Boolean(totalBooks) && (
+            <button
+              type="button"
+              className="self-start"
+              onClick={() => {
+                closeModal();
+              }}
+            >
+              <FaArrowLeftLong
+                color="rgb(255 107 8)"
+                className="w-6 h-6  "
+              />
+            </button>
+          )}
 
           <label
             className={labelClass + 'mt-8'}

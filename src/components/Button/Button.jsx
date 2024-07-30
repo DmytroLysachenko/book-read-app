@@ -5,7 +5,7 @@ export const Button = ({ type, children, padding, onClick, className }) => {
       type={type}
       style={{ padding }}
       onClick={() => {
-        onClick;
+        onClick();
       }}
     >
       {children}

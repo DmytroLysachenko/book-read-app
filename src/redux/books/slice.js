@@ -28,6 +28,9 @@ const booksSlice = createSlice({
     removeReviewingBook(state) {
       state.currentlyReviewing = null;
     },
+    clearPlanning(state) {
+      state.planning = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -121,4 +124,5 @@ const booksSlice = createSlice({
 });
 
 export const booksReducer = booksSlice.reducer;
-export const { addReviewingBook, removeReviewingBook } = booksSlice.actions;
+export const { addReviewingBook, removeReviewingBook, clearPlanning } =
+  booksSlice.actions;

@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom';
-import { GoogleBtn } from '../../components/GoogleBtn/GoogleBtn';
+
 import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
 
 const Register = () => {
   return (
-    <div className="h-noHeaderMob overflow-y-auto  bg-mob_auth bg-bgOverlay bg-no-repeat bg-cover bg-center flex items-center justify-center">
-      <div className="flex flex-col justify-center items-center px-5 py-8">
-        <GoogleBtn />
+    <div className="h-noHeaderMob overflow-y-auto  bg-mob_auth bg-bgOverlay bg-no-repeat bg-cover bg-center flex justify-center">
+      <div className="my-auto">
         <RegisterForm />
-        <p className="text-gray_text mt-5">
+        <p className="text-gray_text mt-5 mb-7 text-center">
           Already have an account?{' '}
           <Link
             to={'/login'}
